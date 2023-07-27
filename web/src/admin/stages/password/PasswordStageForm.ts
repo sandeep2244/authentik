@@ -62,7 +62,7 @@ export class PasswordStageForm extends ModelForm<PasswordStage, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg("Validate the user's password against the selected backend(s).")}
             </div>
@@ -70,19 +70,19 @@ export class PasswordStageForm extends ModelForm<PasswordStage, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name || "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Backends")}
                         ?required=${true}
                         name="backends"
                     >
-                        <select name="users" class="pf-c-form-control" multiple>
+                        <select name="users" class="pf-v5-c-form-control" multiple>
                             <option
                                 value=${BackendsEnum.CoreAuthInbuiltBackend}
                                 ?selected=${this.isBackendSelected(
@@ -108,10 +108,10 @@ export class PasswordStageForm extends ModelForm<PasswordStage, string> {
                                 ${msg("User database + LDAP password")}
                             </option>
                         </select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Selection of backends to test the password against.")}
                         </p>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Hold control/command to select multiple items.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -158,7 +158,7 @@ export class PasswordStageForm extends ModelForm<PasswordStage, string> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Flow used by an authenticated user to configure their password. If empty, user will not be able to configure change their password.",
                             )}
@@ -172,10 +172,10 @@ export class PasswordStageForm extends ModelForm<PasswordStage, string> {
                         <input
                             type="number"
                             value="${first(this.instance?.failedAttemptsBeforeCancel, 5)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "How many attempts a user has before the flow is canceled. To lock the user out, use a reputation policy and a user_write stage.",
                             )}

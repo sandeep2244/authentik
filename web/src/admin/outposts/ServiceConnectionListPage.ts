@@ -98,7 +98,7 @@ export class OutpostServiceConnectionListPage extends TablePage<ServiceConnectio
                     type=${ifDefined(item.component)}
                 >
                 </ak-proxy-form>
-                <button slot="trigger" class="pf-c-button pf-m-plain">
+                <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                     <i class="fas fa-edit"></i>
                 </button>
             </ak-forms-modal>`,
@@ -121,7 +121,7 @@ export class OutpostServiceConnectionListPage extends TablePage<ServiceConnectio
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;

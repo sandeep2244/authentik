@@ -73,7 +73,7 @@ export class RuleListPage extends TablePage<NotificationRule> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -90,7 +90,7 @@ export class RuleListPage extends TablePage<NotificationRule> {
                 <span slot="submit"> ${msg("Update")} </span>
                 <span slot="header"> ${msg("Update Notification Rule")} </span>
                 <ak-event-rule-form slot="form" .instancePk=${item.pk}> </ak-event-rule-form>
-                <button slot="trigger" class="pf-c-button pf-m-plain">
+                <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                     <i class="fas fa-edit"></i>
                 </button>
             </ak-forms-modal>`,
@@ -103,14 +103,14 @@ export class RuleListPage extends TablePage<NotificationRule> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Notification Rule")} </span>
                 <ak-event-rule-form slot="form"> </ak-event-rule-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Create")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Create")}</button>
             </ak-forms-modal>
         `;
     }
 
     renderExpanded(item: NotificationRule): TemplateResult {
         return html` <td role="cell" colspan="4">
-            <div class="pf-c-table__expandable-row-content">
+            <div class="pf-v5-c-table__expandable-row-content">
                 <p>
                     ${msg(
                         `These bindings control upon which events this rule triggers.

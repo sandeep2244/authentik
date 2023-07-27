@@ -50,7 +50,7 @@ export class InvitationForm extends ModelForm<Invitation, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal
                 ?slugMode=${true}
                 label=${msg("Name")}
@@ -60,7 +60,7 @@ export class InvitationForm extends ModelForm<Invitation, string> {
                 <input
                     type="text"
                     value="${this.instance?.name || ""}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                     data-ak-slug="true"
                 />
@@ -69,7 +69,7 @@ export class InvitationForm extends ModelForm<Invitation, string> {
                 <input
                     type="datetime-local"
                     data-type="datetime-local"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                     value="${dateTimeLocal(first(this.instance?.expires, new Date()))}"
                 />
@@ -102,7 +102,7 @@ export class InvitationForm extends ModelForm<Invitation, string> {
                     ?blankable=${true}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "When selected, the invite will only be usable with the flow. By default the invite is accepted on all flows with invitation stages.",
                     )}
@@ -114,27 +114,27 @@ export class InvitationForm extends ModelForm<Invitation, string> {
                     value="${YAML.stringify(first(this.instance?.fixedData, {}))}"
                 >
                 </ak-codemirror>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Optional data which is loaded into the flow's 'prompt_data' context variable. YAML or JSON.",
                     )}
                 </p>
             </ak-form-element-horizontal>
             <ak-form-element-horizontal name="singleUse">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.singleUse, true)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Single use")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Single use")}</span>
                 </label>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("When enabled, the invitation will be deleted after usage.")}
                 </p>
             </ak-form-element-horizontal>

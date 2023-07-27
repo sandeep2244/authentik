@@ -40,7 +40,7 @@ export class InvitationStageForm extends ModelForm<InvitationStage, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg("This stage can be included in enrollment flows to accept invitations.")}
             </div>
@@ -48,33 +48,33 @@ export class InvitationStageForm extends ModelForm<InvitationStage, string> {
                 <input
                     type="text"
                     value="${this.instance?.name || ""}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal name="continueFlowWithoutInvitation">
-                        <label class="pf-c-switch">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${first(
                                     this.instance?.continueFlowWithoutInvitation,
                                     true,
                                 )}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label"
+                            <span class="pf-v5-c-switch__label"
                                 >${msg("Continue flow without invitation")}</span
                             >
                         </label>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "If this flag is set, this Stage will jump to the next Stage when no Invitation is given. By default this Stage will cancel the Flow when no invitation is given.",
                             )}

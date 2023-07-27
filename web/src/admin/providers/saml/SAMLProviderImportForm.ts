@@ -38,7 +38,7 @@ export class SAMLProviderImportForm extends Form<SAMLProvider> {
 
     renderInlineForm(): TemplateResult {
         return html`<ak-form-element-horizontal label=${msg("Name")} ?required=${true} name="name">
-                <input type="text" class="pf-c-form-control" required />
+                <input type="text" class="pf-v5-c-form-control" required />
             </ak-form-element-horizontal>
             <ak-form-element-horizontal
                 label=${msg("Authorization flow")}
@@ -68,13 +68,13 @@ export class SAMLProviderImportForm extends Form<SAMLProvider> {
                     }}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Flow used when authorizing this provider.")}
                 </p>
             </ak-form-element-horizontal>
 
             <ak-form-element-horizontal label=${msg("Metadata")} name="metadata">
-                <input type="file" value="" class="pf-c-form-control" />
+                <input type="file" value="" class="pf-v5-c-form-control" />
             </ak-form-element-horizontal>`;
     }
 }

@@ -79,7 +79,7 @@ export class PropertyMappingListPage extends TablePage<PropertyMapping> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -100,7 +100,7 @@ export class PropertyMappingListPage extends TablePage<PropertyMapping> {
                         type=${ifDefined(item.component)}
                     >
                     </ak-proxy-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-edit"></i>
                     </button>
                 </ak-forms-modal>
@@ -109,7 +109,7 @@ export class PropertyMappingListPage extends TablePage<PropertyMapping> {
                     <span slot="header"> ${msg("Test Property Mapping")} </span>
                     <ak-property-mapping-test-form slot="form" .mapping=${item}>
                     </ak-property-mapping-test-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-vial" aria-hidden="true"></i>
                     </button>
                 </ak-forms-modal>`,
@@ -122,12 +122,12 @@ export class PropertyMappingListPage extends TablePage<PropertyMapping> {
 
     renderToolbarAfter(): TemplateResult {
         return html`&nbsp;
-            <div class="pf-c-toolbar__group pf-m-filter-group">
-                <div class="pf-c-toolbar__item pf-m-search-filter">
-                    <div class="pf-c-input-group">
-                        <label class="pf-c-switch">
+            <div class="pf-v5-c-toolbar__group pf-m-filter-group">
+                <div class="pf-v5-c-toolbar__item pf-m-search-filter">
+                    <div class="pf-v5-c-input-group">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${this.hideManaged}
                                 @change=${() => {
@@ -139,12 +139,12 @@ export class PropertyMappingListPage extends TablePage<PropertyMapping> {
                                     });
                                 }}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label">${msg("Hide managed mappings")}</span>
+                            <span class="pf-v5-c-switch__label">${msg("Hide managed mappings")}</span>
                         </label>
                     </div>
                 </div>

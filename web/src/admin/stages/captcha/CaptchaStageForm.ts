@@ -40,7 +40,7 @@ export class CaptchaStageForm extends ModelForm<CaptchaStage, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "This stage checks the user's current session against the Google reCaptcha (or compatible) service.",
@@ -50,13 +50,13 @@ export class CaptchaStageForm extends ModelForm<CaptchaStage, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name || "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Public Key")}
                         ?required=${true}
@@ -65,10 +65,10 @@ export class CaptchaStageForm extends ModelForm<CaptchaStage, string> {
                         <input
                             type="text"
                             value="${ifDefined(this.instance?.publicKey || "")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Public key, acquired from https://www.google.com/recaptcha/intro/v3.html.",
                             )}
@@ -80,8 +80,8 @@ export class CaptchaStageForm extends ModelForm<CaptchaStage, string> {
                         ?writeOnly=${this.instance !== undefined}
                         name="privateKey"
                     >
-                        <input type="text" value="" class="pf-c-form-control" required />
-                        <p class="pf-c-form__helper-text">
+                        <input type="text" value="" class="pf-v5-c-form-control" required />
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Private key, acquired from https://www.google.com/recaptcha/intro/v3.html.",
                             )}
@@ -91,7 +91,7 @@ export class CaptchaStageForm extends ModelForm<CaptchaStage, string> {
             </ak-form-group>
             <ak-form-group>
                 <span slot="header"> ${msg("Advanced settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("JS URL")}
                         ?required=${true}
@@ -103,10 +103,10 @@ export class CaptchaStageForm extends ModelForm<CaptchaStage, string> {
                                 this.instance?.jsUrl ||
                                     "https://www.recaptcha.net/recaptcha/api.js",
                             )}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "URL to fetch JavaScript from, defaults to recaptcha. Can be replaced with any compatible alternative.",
                             )}
@@ -123,10 +123,10 @@ export class CaptchaStageForm extends ModelForm<CaptchaStage, string> {
                                 this.instance?.apiUrl ||
                                     "https://www.recaptcha.net/recaptcha/api/siteverify",
                             )}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "URL used to validate captcha response, defaults to recaptcha. Can be replaced with any compatible alternative.",
                             )}

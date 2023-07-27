@@ -41,7 +41,7 @@ export class DummyPolicyForm extends ModelForm<DummyPolicy, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "A policy used for testing. Always returns the same result as specified below after waiting a random duration.",
@@ -51,25 +51,25 @@ export class DummyPolicyForm extends ModelForm<DummyPolicy, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name || "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-element-horizontal name="executionLogging">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.executionLogging, false)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Execution logging")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Execution logging")}</span>
                 </label>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "When this option is enabled, all executions of this policy will be logged. By default, only execution errors are logged.",
                     )}
@@ -77,20 +77,20 @@ export class DummyPolicyForm extends ModelForm<DummyPolicy, string> {
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Policy-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal name="result">
-                        <label class="pf-c-switch">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${first(this.instance?.result, false)}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label">${msg("Pass policy?")}</span>
+                            <span class="pf-v5-c-switch__label">${msg("Pass policy?")}</span>
                         </label>
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal
@@ -101,10 +101,10 @@ export class DummyPolicyForm extends ModelForm<DummyPolicy, string> {
                         <input
                             type="number"
                             value="${first(this.instance?.waitMin, 1)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "The policy takes a random time to execute. This controls the minimum time it will take.",
                             )}
@@ -118,7 +118,7 @@ export class DummyPolicyForm extends ModelForm<DummyPolicy, string> {
                         <input
                             type="number"
                             value="${first(this.instance?.waitMax, 5)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
                     </ak-form-element-horizontal>

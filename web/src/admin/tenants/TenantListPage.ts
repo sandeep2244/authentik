@@ -71,7 +71,7 @@ export class TenantListPage extends TablePage<Tenant> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -87,7 +87,7 @@ export class TenantListPage extends TablePage<Tenant> {
                 <span slot="submit"> ${msg("Update")} </span>
                 <span slot="header"> ${msg("Update Tenant")} </span>
                 <ak-tenant-form slot="form" .instancePk=${item.tenantUuid}> </ak-tenant-form>
-                <button slot="trigger" class="pf-c-button pf-m-plain">
+                <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                     <i class="fas fa-edit"></i>
                 </button>
             </ak-forms-modal>`,
@@ -100,7 +100,7 @@ export class TenantListPage extends TablePage<Tenant> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Tenant")} </span>
                 <ak-tenant-form slot="form"> </ak-tenant-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Create")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Create")}</button>
             </ak-forms-modal>
         `;
     }

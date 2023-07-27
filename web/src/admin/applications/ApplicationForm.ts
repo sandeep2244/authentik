@@ -89,24 +89,24 @@ export class ApplicationForm extends ModelForm<Application, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal label=${msg("Name")} ?required=${true} name="name">
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
-                <p class="pf-c-form__helper-text">${msg("Application's display Name.")}</p>
+                <p class="pf-v5-c-form__helper-text">${msg("Application's display Name.")}</p>
             </ak-form-element-horizontal>
             <ak-form-element-horizontal label=${msg("Slug")} ?required=${true} name="slug">
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.slug)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Internal application name, used in URLs.")}
                 </p>
             </ak-form-element-horizontal>
@@ -114,9 +114,9 @@ export class ApplicationForm extends ModelForm<Application, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.group)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Optionally enter a group name. Applications with identical groups are shown grouped together.",
                     )}
@@ -149,7 +149,7 @@ export class ApplicationForm extends ModelForm<Application, string> {
                     ?blankable=${true}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Select a provider that this application should use.")}
                 </p>
             </ak-form-element-horizontal>
@@ -158,7 +158,7 @@ export class ApplicationForm extends ModelForm<Application, string> {
                 label=${msg("Backchannel providers")}
                 name="backchannelProviders"
             >
-                <div class="pf-c-input-group">
+                <div class="pf-v5-c-input-group">
                     <ak-provider-select-table
                         ?backchannelOnly=${true}
                         .confirm=${(items: Provider[]) => {
@@ -167,11 +167,11 @@ export class ApplicationForm extends ModelForm<Application, string> {
                             return Promise.resolve();
                         }}
                     >
-                        <button slot="trigger" class="pf-c-button pf-m-control" type="button">
+                        <button slot="trigger" class="pf-v5-c-button pf-m-control" type="button">
                             <i class="fas fa-plus" aria-hidden="true"></i>
                         </button>
                     </ak-provider-select-table>
-                    <div class="pf-c-form-control">
+                    <div class="pf-v5-c-form-control">
                         <ak-chip-group>
                             ${this.backchannelProviders.map((provider) => {
                                 return html`<ak-chip
@@ -189,7 +189,7 @@ export class ApplicationForm extends ModelForm<Application, string> {
                         </ak-chip-group>
                     </div>
                 </div>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Select backchannel providers which augment the functionality of the main provider.",
                     )}
@@ -221,34 +221,34 @@ export class ApplicationForm extends ModelForm<Application, string> {
             </ak-form-element-horizontal>
             <ak-form-group>
                 <span slot="header"> ${msg("UI settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal label=${msg("Launch URL")} name="metaLaunchUrl">
                         <input
                             type="text"
                             value="${ifDefined(this.instance?.metaLaunchUrl)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "If left empty, authentik will try to extract the launch URL based on the selected provider.",
                             )}
                         </p>
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal name="openInNewTab">
-                        <label class="pf-c-switch">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${first(this.instance?.openInNewTab, false)}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label">${msg("Open in new tab")}</span>
+                            <span class="pf-v5-c-switch__label">${msg("Open in new tab")}</span>
                         </label>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "If checked, the launch URL will open in a new browser tab or window from the user's application library.",
                             )}
@@ -256,10 +256,10 @@ export class ApplicationForm extends ModelForm<Application, string> {
                     </ak-form-element-horizontal>
                     ${rootInterface()?.config?.capabilities.includes(CapabilitiesEnum.CanSaveMedia)
                         ? html`<ak-form-element-horizontal label="${msg("Icon")}" name="metaIcon">
-                                  <input type="file" value="" class="pf-c-form-control" />
+                                  <input type="file" value="" class="pf-v5-c-form-control" />
                                   ${this.instance?.metaIcon
                                       ? html`
-                                            <p class="pf-c-form__helper-text">
+                                            <p class="pf-v5-c-form__helper-text">
                                                 ${msg("Currently set to:")}
                                                 ${this.instance?.metaIcon}
                                             </p>
@@ -269,9 +269,9 @@ export class ApplicationForm extends ModelForm<Application, string> {
                               ${this.instance?.metaIcon
                                   ? html`
                                         <ak-form-element-horizontal>
-                                            <label class="pf-c-switch">
+                                            <label class="pf-v5-c-switch">
                                                 <input
-                                                    class="pf-c-switch__input"
+                                                    class="pf-v5-c-switch__input"
                                                     type="checkbox"
                                                     @change=${(ev: Event) => {
                                                         const target =
@@ -279,19 +279,19 @@ export class ApplicationForm extends ModelForm<Application, string> {
                                                         this.clearIcon = target.checked;
                                                     }}
                                                 />
-                                                <span class="pf-c-switch__toggle">
-                                                    <span class="pf-c-switch__toggle-icon">
+                                                <span class="pf-v5-c-switch__toggle">
+                                                    <span class="pf-v5-c-switch__toggle-icon">
                                                         <i
                                                             class="fas fa-check"
                                                             aria-hidden="true"
                                                         ></i>
                                                     </span>
                                                 </span>
-                                                <span class="pf-c-switch__label">
+                                                <span class="pf-v5-c-switch__label">
                                                     ${msg("Clear icon")}
                                                 </span>
                                             </label>
-                                            <p class="pf-c-form__helper-text">
+                                            <p class="pf-v5-c-form__helper-text">
                                                 ${msg("Delete currently set icon.")}
                                             </p>
                                         </ak-form-element-horizontal>
@@ -301,19 +301,19 @@ export class ApplicationForm extends ModelForm<Application, string> {
                               <input
                                   type="text"
                                   value="${first(this.instance?.metaIcon, "")}"
-                                  class="pf-c-form-control"
+                                  class="pf-v5-c-form-control"
                               />
-                              <p class="pf-c-form__helper-text">${iconHelperText}</p>
+                              <p class="pf-v5-c-form__helper-text">${iconHelperText}</p>
                           </ak-form-element-horizontal>`}
                     <ak-form-element-horizontal label=${msg("Publisher")} name="metaPublisher">
                         <input
                             type="text"
                             value="${ifDefined(this.instance?.metaPublisher)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                         />
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal label=${msg("Description")} name="metaDescription">
-                        <textarea class="pf-c-form-control">
+                        <textarea class="pf-v5-c-form-control">
 ${ifDefined(this.instance?.metaDescription)}</textarea
                         >
                     </ak-form-element-horizontal>

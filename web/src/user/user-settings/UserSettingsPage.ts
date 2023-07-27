@@ -78,19 +78,19 @@ export class UserSettingsPage extends AKElement {
         const pwStage =
             this.userSettings?.filter((stage) => stage.component === "ak-user-settings-password") ||
             [];
-        return html`<div class="pf-c-page">
-            <main role="main" class="pf-c-page__main" tabindex="-1">
+        return html`<div class="pf-v5-c-page">
+            <main role="main" class="pf-v5-c-page__main" tabindex="-1">
                 <ak-tabs ?vertical="${true}">
                     <section
                         slot="page-details"
                         data-tab-title="${msg("User details")}"
-                        class="pf-c-page__main-section pf-m-no-padding-mobile"
+                        class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
                     >
-                        <div class="pf-l-stack pf-m-gutter">
-                            <div class="pf-l-stack__item">
+                        <div class="pf-v5-l-stack pf-m-gutter">
+                            <div class="pf-v5-l-stack__item">
                                 <ak-user-settings-flow-executor></ak-user-settings-flow-executor>
                             </div>
-                            <div class="pf-l-stack__item">
+                            <div class="pf-v5-l-stack__item">
                                 ${pwStage.length > 0
                                     ? html`<ak-user-settings-password
                                           configureUrl=${ifDefined(pwStage[0].configureUrl)}
@@ -102,7 +102,7 @@ export class UserSettingsPage extends AKElement {
                     <section
                         slot="page-sessions"
                         data-tab-title="${msg("Sessions")}"
-                        class="pf-c-page__main-section pf-m-no-padding-mobile"
+                        class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
                     >
                         <ak-user-session-list
                             targetUser=${ifDefined(
@@ -113,7 +113,7 @@ export class UserSettingsPage extends AKElement {
                     <section
                         slot="page-consents"
                         data-tab-title="${msg("Consent")}"
-                        class="pf-c-page__main-section pf-m-no-padding-mobile"
+                        class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
                     >
                         <ak-user-consent-list
                             userId=${ifDefined(rootInterface<UserInterface>()?.me?.user.pk)}
@@ -122,7 +122,7 @@ export class UserSettingsPage extends AKElement {
                     <section
                         slot="page-mfa"
                         data-tab-title="${msg("MFA Devices")}"
-                        class="pf-c-page__main-section pf-m-no-padding-mobile"
+                        class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
                     >
                         <ak-user-settings-mfa
                             .userSettings=${this.userSettings}
@@ -131,14 +131,14 @@ export class UserSettingsPage extends AKElement {
                     <section
                         slot="page-sources"
                         data-tab-title="${msg("Connected services")}"
-                        class="pf-c-page__main-section pf-m-no-padding-mobile"
+                        class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
                     >
                         <ak-user-settings-source></ak-user-settings-source>
                     </section>
                     <section
                         slot="page-tokens"
                         data-tab-title="${msg("Tokens and App passwords")}"
-                        class="pf-c-page__main-section pf-m-no-padding-mobile"
+                        class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
                     >
                         <ak-user-token-list></ak-user-token-list>
                     </section>

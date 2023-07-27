@@ -71,7 +71,7 @@ export class PromptListPage extends TablePage<Prompt> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -90,7 +90,7 @@ export class PromptListPage extends TablePage<Prompt> {
                 <span slot="submit"> ${msg("Update")} </span>
                 <span slot="header"> ${msg("Update Prompt")} </span>
                 <ak-prompt-form slot="form" .instancePk=${item.pk}> </ak-prompt-form>
-                <button slot="trigger" class="pf-c-button pf-m-plain">
+                <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                     <i class="fas fa-edit"></i>
                 </button>
             </ak-forms-modal>`,
@@ -103,7 +103,7 @@ export class PromptListPage extends TablePage<Prompt> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Prompt")} </span>
                 <ak-prompt-form slot="form"> </ak-prompt-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Create")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Create")}</button>
             </ak-forms-modal>
         `;
     }

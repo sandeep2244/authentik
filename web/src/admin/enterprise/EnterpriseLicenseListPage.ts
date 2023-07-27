@@ -132,7 +132,7 @@ export class EnterpriseLicenseListPage extends TablePage<License> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -140,24 +140,24 @@ export class EnterpriseLicenseListPage extends TablePage<License> {
 
     renderSectionBefore(): TemplateResult {
         return html`
-            <div class="pf-c-banner pf-m-info">
+            <div class="pf-v5-c-banner pf-m-info">
                 ${msg("Enterprise is in preview.")}
                 <a href="mailto:hello@goauthentik.io">${msg("Send us feedback!")}</a>
             </div>
-            <section class="pf-c-page__main-section pf-m-no-padding-bottom">
+            <section class="pf-v5-c-page__main-section pf-m-no-padding-bottom">
                 <div
-                    class="pf-l-grid pf-m-gutter pf-m-all-6-col-on-sm pf-m-all-4-col-on-md pf-m-all-3-col-on-lg pf-m-all-3-col-on-xl"
+                    class="pf-v5-l-grid pf-m-gutter pf-m-all-6-col-on-sm pf-m-all-4-col-on-md pf-m-all-3-col-on-lg pf-m-all-3-col-on-xl"
                 >
-                    <div class="pf-l-grid__item pf-c-card">
-                        <div class="pf-c-card__title">${msg("Get a license")}</div>
-                        <div class="pf-c-card__body">
+                    <div class="pf-v5-l-grid__item pf-v5-c-card">
+                        <div class="pf-v5-c-card__title">${msg("Get a license")}</div>
+                        <div class="pf-v5-c-card__body">
                             ${this.installID
                                 ? html` <a
                                       target="_blank"
                                       href=${`https://customers.goauthentik.io/from_authentik/purchase/?install_id=${encodeURIComponent(
                                           this.installID,
                                       )}&authentik_url=${encodeURI(window.location.origin)}`}
-                                      class="pf-c-button pf-m-primary pf-m-block"
+                                      class="pf-v5-c-button pf-m-primary pf-m-block"
                                       >${msg("Go to Customer Portal")}</a
                                   >`
                                 : html`<ak-spinner></ak-spinner>`}
@@ -165,7 +165,7 @@ export class EnterpriseLicenseListPage extends TablePage<License> {
                     </div>
 
                     <ak-aggregate-card
-                        class="pf-l-grid__item"
+                        class="pf-v5-l-grid__item"
                         icon="pf-icon pf-icon-user"
                         header=${msg("Forecast internal users")}
                         subtext=${msg(
@@ -176,7 +176,7 @@ export class EnterpriseLicenseListPage extends TablePage<License> {
                         (this.forecast?.forecastedUsers || 0)}
                     </ak-aggregate-card>
                     <ak-aggregate-card
-                        class="pf-l-grid__item"
+                        class="pf-v5-l-grid__item"
                         icon="pf-icon pf-icon-user"
                         header=${msg("Forecast external users")}
                         subtext=${msg(
@@ -187,7 +187,7 @@ export class EnterpriseLicenseListPage extends TablePage<License> {
                         (this.forecast?.forecastedExternalUsers || 0)}
                     </ak-aggregate-card>
                     <ak-aggregate-card
-                        class="pf-l-grid__item"
+                        class="pf-v5-l-grid__item"
                         icon="pf-icon pf-icon-user"
                         header=${msg("Expiry")}
                         subtext=${msg("Cumulative license expiry")}
@@ -226,7 +226,7 @@ export class EnterpriseLicenseListPage extends TablePage<License> {
                 <span slot="header"> ${msg("Update License")} </span>
                 <ak-enterprise-license-form slot="form" .instancePk=${item.licenseUuid}>
                 </ak-enterprise-license-form>
-                <button slot="trigger" class="pf-c-button pf-m-plain">
+                <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                     <i class="fas fa-edit"></i>
                 </button>
             </ak-forms-modal>`,
@@ -239,7 +239,7 @@ export class EnterpriseLicenseListPage extends TablePage<License> {
                 <span slot="submit"> ${msg("Install")} </span>
                 <span slot="header"> ${msg("Install License")} </span>
                 <ak-enterprise-license-form slot="form"> </ak-enterprise-license-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Install")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Install")}</button>
             </ak-forms-modal>
         `;
     }

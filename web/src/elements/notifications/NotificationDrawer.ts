@@ -29,25 +29,25 @@ export class NotificationDrawer extends AKElement {
 
     static get styles(): CSSResult[] {
         return [PFBase, PFButton, PFNotificationDrawer, PFContent, PFDropdown].concat(css`
-            .pf-c-drawer__body {
+            .pf-v5-c-drawer__body {
                 height: 100%;
             }
-            .pf-c-notification-drawer__body {
+            .pf-v5-c-notification-drawer__body {
                 flex-grow: 1;
             }
-            .pf-c-notification-drawer__header {
+            .pf-v5-c-notification-drawer__header {
                 height: 114px;
                 align-items: center;
             }
-            .pf-c-notification-drawer__header-action,
-            .pf-c-notification-drawer__header-action-close,
-            .pf-c-notification-drawer__header-action-close > .pf-c-button.pf-m-plain {
+            .pf-v5-c-notification-drawer__header-action,
+            .pf-v5-c-notification-drawer__header-action-close,
+            .pf-v5-c-notification-drawer__header-action-close > .pf-v5-c-button.pf-m-plain {
                 height: 100%;
             }
-            .pf-c-notification-drawer__list-item-description {
+            .pf-v5-c-notification-drawer__list-item-description {
                 white-space: pre-wrap;
             }
-            .pf-c-notification-drawer__footer {
+            .pf-v5-c-notification-drawer__footer {
                 margin: 1rem;
             }
         `);
@@ -83,27 +83,27 @@ export class NotificationDrawer extends AKElement {
             default:
                 break;
         }
-        return html`<li class="pf-c-notification-drawer__list-item">
-            <div class="pf-c-notification-drawer__list-item-header">
-                <span class="pf-c-notification-drawer__list-item-header-icon ${level}">
+        return html`<li class="pf-v5-c-notification-drawer__list-item">
+            <div class="pf-v5-c-notification-drawer__list-item-header">
+                <span class="pf-v5-c-notification-drawer__list-item-header-icon ${level}">
                     <i class="fas fa-info-circle" aria-hidden="true"></i>
                 </span>
-                <h2 class="pf-c-notification-drawer__list-item-header-title">
+                <h2 class="pf-v5-c-notification-drawer__list-item-header-title">
                     ${ActionToLabel(item.event?.action)}
                 </h2>
             </div>
-            <div class="pf-c-notification-drawer__list-item-action">
+            <div class="pf-v5-c-notification-drawer__list-item-action">
                 ${item.event &&
                 html`
                     <a
-                        class="pf-c-dropdown__toggle pf-m-plain"
+                        class="pf-v5-c-dropdown__toggle pf-m-plain"
                         href="/if/admin/#/events/log/${item.event?.pk}"
                     >
                         <i class="fas fa-share-square"></i>
                     </a>
                 `}
                 <button
-                    class="pf-c-dropdown__toggle pf-m-plain"
+                    class="pf-v5-c-dropdown__toggle pf-m-plain"
                     type="button"
                     @click=${() => {
                         new EventsApi(DEFAULT_CONFIG)
@@ -127,8 +127,8 @@ export class NotificationDrawer extends AKElement {
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <p class="pf-c-notification-drawer__list-item-description">${item.body}</p>
-            <small class="pf-c-notification-drawer__list-item-timestamp"
+            <p class="pf-v5-c-notification-drawer__list-item-description">${item.body}</p>
+            <small class="pf-v5-c-notification-drawer__list-item-timestamp"
                 >${item.created?.toLocaleString()}</small
             >
         </li>`;
@@ -138,17 +138,17 @@ export class NotificationDrawer extends AKElement {
         if (!this.notifications) {
             return html``;
         }
-        return html`<div class="pf-c-drawer__body pf-m-no-padding">
-            <div class="pf-c-notification-drawer">
-                <div class="pf-c-notification-drawer__header">
+        return html`<div class="pf-v5-c-drawer__body pf-m-no-padding">
+            <div class="pf-v5-c-notification-drawer">
+                <div class="pf-v5-c-notification-drawer__header">
                     <div class="text">
-                        <h1 class="pf-c-notification-drawer__header-title">
+                        <h1 class="pf-v5-c-notification-drawer__header-title">
                             ${msg("Notifications")}
                         </h1>
                         <span> ${msg(str`${this.unread} unread`)} </span>
                     </div>
-                    <div class="pf-c-notification-drawer__header-action">
-                        <div class="pf-c-notification-drawer__header-action-close">
+                    <div class="pf-v5-c-notification-drawer__header-action">
+                        <div class="pf-v5-c-notification-drawer__header-action-close">
                             <button
                                 @click=${() => {
                                     this.dispatchEvent(
@@ -158,7 +158,7 @@ export class NotificationDrawer extends AKElement {
                                         }),
                                     );
                                 }}
-                                class="pf-c-button pf-m-plain"
+                                class="pf-v5-c-button pf-m-plain"
                                 type="button"
                                 aria-label=${msg("Close")}
                             >
@@ -167,12 +167,12 @@ export class NotificationDrawer extends AKElement {
                         </div>
                     </div>
                 </div>
-                <div class="pf-c-notification-drawer__body">
-                    <ul class="pf-c-notification-drawer__list">
+                <div class="pf-v5-c-notification-drawer__body">
+                    <ul class="pf-v5-c-notification-drawer__list">
                         ${this.notifications.results.map((n) => this.renderItem(n))}
                     </ul>
                 </div>
-                <div class="pf-c-notification-drawer__footer">
+                <div class="pf-v5-c-notification-drawer__footer">
                     <button
                         @click=${() => {
                             new EventsApi(DEFAULT_CONFIG)
@@ -197,7 +197,7 @@ export class NotificationDrawer extends AKElement {
                                     );
                                 });
                         }}
-                        class="pf-c-button pf-m-primary pf-m-block"
+                        class="pf-v5-c-button pf-m-primary pf-m-block"
                         type="button"
                         aria-label=${msg("Clear all")}
                     >

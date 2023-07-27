@@ -48,44 +48,44 @@ export class EventViewPage extends AKElement {
                 header=${msg(str`Event ${this.event.pk}`)}
             >
             </ak-page-header>
-            <section class="pf-c-page__main-section pf-m-no-padding-mobile">
-                <div class="pf-l-grid pf-m-gutter">
-                    <div class="pf-c-card pf-l-grid__item pf-m-12-col pf-m-4-col-on-xl">
-                        <div class="pf-c-card__title">${msg("Event info")}</div>
-                        <div class="pf-c-card__body">
-                            <dl class="pf-c-description-list pf-m-horizontal">
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+            <section class="pf-v5-c-page__main-section pf-m-no-padding-mobile">
+                <div class="pf-v5-l-grid pf-m-gutter">
+                    <div class="pf-v5-c-card pf-v5-l-grid__item pf-m-12-col pf-m-4-col-on-xl">
+                        <div class="pf-v5-c-card__title">${msg("Event info")}</div>
+                        <div class="pf-v5-c-card__body">
+                            <dl class="pf-v5-c-description-list pf-m-horizontal">
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("Action")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             ${ActionToLabel(this.event.action)}
                                         </div>
                                     </dd>
                                 </div>
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("App")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             ${this.event.app}
                                         </div>
                                     </dd>
                                 </div>
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("User")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             ${this.event.user?.username
                                                 ? html`<div>
                                                           <a
@@ -110,39 +110,39 @@ export class EventViewPage extends AKElement {
                                         </div>
                                     </dd>
                                 </div>
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("Created")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             ${this.event.created?.toLocaleString()}
                                         </div>
                                     </dd>
                                 </div>
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("Client IP")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             <div>${this.event.clientIp || msg("-")}</div>
                                             <small>${EventGeo(this.event)}</small>
                                         </div>
                                     </dd>
                                 </div>
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("Tenant")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             ${this.event.tenant?.name || msg("-")}
                                         </div>
                                     </dd>
@@ -150,7 +150,7 @@ export class EventViewPage extends AKElement {
                             </dl>
                         </div>
                     </div>
-                    <div class="pf-c-card pf-l-grid__item pf-m-12-col pf-m-8-col-on-xl">
+                    <div class="pf-v5-c-card pf-v5-l-grid__item pf-m-12-col pf-m-8-col-on-xl">
                         <ak-event-info .event=${this.event}></ak-event-info>
                     </div>
                 </div>

@@ -78,7 +78,7 @@ export class FlowExecutor extends Interface implements StageHost {
             return;
         }
         this.shadowRoot
-            ?.querySelectorAll<HTMLDivElement>(".pf-c-background-image")
+            ?.querySelectorAll<HTMLDivElement>(".pf-v5-c-background-image")
             .forEach((bg) => {
                 bg.style.setProperty("--ak-flow-background", `url('${value?.background}')`);
             });
@@ -92,12 +92,12 @@ export class FlowExecutor extends Interface implements StageHost {
 
     static get styles(): CSSResult[] {
         return [PFBase, PFLogin, PFDrawer, PFButton, PFTitle, PFList, PFBackgroundImage].concat(css`
-            .pf-c-background-image::before {
-                --pf-c-background-image--BackgroundImage: var(--ak-flow-background);
-                --pf-c-background-image--BackgroundImage-2x: var(--ak-flow-background);
-                --pf-c-background-image--BackgroundImage--sm: var(--ak-flow-background);
-                --pf-c-background-image--BackgroundImage--sm-2x: var(--ak-flow-background);
-                --pf-c-background-image--BackgroundImage--lg: var(--ak-flow-background);
+            .pf-v5-c-background-image::before {
+                --pf-v5-c-background-image--BackgroundImage: var(--ak-flow-background);
+                --pf-v5-c-background-image--BackgroundImage-2x: var(--ak-flow-background);
+                --pf-v5-c-background-image--BackgroundImage--sm: var(--ak-flow-background);
+                --pf-v5-c-background-image--BackgroundImage--sm-2x: var(--ak-flow-background);
+                --pf-v5-c-background-image--BackgroundImage--lg: var(--ak-flow-background);
             }
             .ak-hidden {
                 display: none;
@@ -105,43 +105,43 @@ export class FlowExecutor extends Interface implements StageHost {
             :host {
                 position: relative;
             }
-            .pf-c-drawer__content {
+            .pf-v5-c-drawer__content {
                 background-color: transparent;
             }
             /* layouts */
-            .pf-c-login__container.content-right {
+            .pf-v5-c-login__container.content-right {
                 grid-template-areas:
                     "header main"
                     "footer main"
                     ". main";
             }
-            .pf-c-login.sidebar_left {
+            .pf-v5-c-login.sidebar_left {
                 justify-content: flex-start;
                 padding-top: 0;
                 padding-bottom: 0;
             }
-            .pf-c-login.sidebar_left .ak-login-container,
-            .pf-c-login.sidebar_right .ak-login-container {
+            .pf-v5-c-login.sidebar_left .ak-login-container,
+            .pf-v5-c-login.sidebar_right .ak-login-container {
                 height: 100vh;
-                background-color: var(--pf-c-login__main--BackgroundColor);
-                padding-left: var(--pf-global--spacer--lg);
-                padding-right: var(--pf-global--spacer--lg);
+                background-color: var(--pf-v5-c-login__main--BackgroundColor);
+                padding-left: var(--pf-v5-global--spacer--lg);
+                padding-right: var(--pf-v5-global--spacer--lg);
             }
-            .pf-c-login.sidebar_left .pf-c-list,
-            .pf-c-login.sidebar_right .pf-c-list {
+            .pf-v5-c-login.sidebar_left .pf-v5-c-list,
+            .pf-v5-c-login.sidebar_right .pf-v5-c-list {
                 color: #000;
             }
-            .pf-c-login.sidebar_right {
+            .pf-v5-c-login.sidebar_right {
                 justify-content: flex-end;
                 padding-top: 0;
                 padding-bottom: 0;
             }
-            :host([theme="dark"]) .pf-c-login.sidebar_left .ak-login-container,
-            :host([theme="dark"]) .pf-c-login.sidebar_right .ak-login-container {
+            :host([theme="dark"]) .pf-v5-c-login.sidebar_left .ak-login-container,
+            :host([theme="dark"]) .pf-v5-c-login.sidebar_right .ak-login-container {
                 background-color: var(--ak-dark-background);
             }
-            :host([theme="dark"]) .pf-c-login.sidebar_left .pf-c-list,
-            :host([theme="dark"]) .pf-c-login.sidebar_right .pf-c-list {
+            :host([theme="dark"]) .pf-v5-c-login.sidebar_left .pf-v5-c-list,
+            :host([theme="dark"]) .pf-v5-c-login.sidebar_right .pf-v5-c-list {
                 color: var(--ak-dark-foreground);
             }
         `);
@@ -428,7 +428,7 @@ export class FlowExecutor extends Interface implements StageHost {
         }
         await import("@goauthentik/flow/FlowInspector");
         return html`<ak-flow-inspector
-            class="pf-c-drawer__panel pf-m-width-33"
+            class="pf-v5-c-drawer__panel pf-m-width-33"
         ></ak-flow-inspector>`;
     }
 
@@ -444,9 +444,9 @@ export class FlowExecutor extends Interface implements StageHost {
         const layout = this.getLayout();
         switch (layout) {
             case LayoutEnum.ContentLeft:
-                return "pf-c-login__container";
+                return "pf-v5-c-login__container";
             case LayoutEnum.ContentRight:
-                return "pf-c-login__container content-right";
+                return "pf-v5-c-login__container content-right";
             case LayoutEnum.Stacked:
             default:
                 return "ak-login-container";
@@ -456,7 +456,7 @@ export class FlowExecutor extends Interface implements StageHost {
     renderBackgroundOverlay(): TemplateResult {
         const overlaySVG = html`<svg
             xmlns="http://www.w3.org/2000/svg"
-            class="pf-c-background-image__filter"
+            class="pf-v5-c-background-image__filter"
             width="0"
             height="0"
         >
@@ -489,28 +489,28 @@ export class FlowExecutor extends Interface implements StageHost {
 
     render(): TemplateResult {
         return html` <ak-locale-context>
-            <div class="pf-c-background-image">${this.renderBackgroundOverlay()}</div>
-            <div class="pf-c-page__drawer">
-                <div class="pf-c-drawer ${this.inspectorOpen ? "pf-m-expanded" : "pf-m-collapsed"}">
-                    <div class="pf-c-drawer__main">
-                        <div class="pf-c-drawer__content">
-                            <div class="pf-c-drawer__body">
-                                <div class="pf-c-login ${this.getLayout()}">
+            <div class="pf-v5-c-background-image">${this.renderBackgroundOverlay()}</div>
+            <div class="pf-v5-c-page__drawer">
+                <div class="pf-v5-c-drawer ${this.inspectorOpen ? "pf-m-expanded" : "pf-m-collapsed"}">
+                    <div class="pf-v5-c-drawer__main">
+                        <div class="pf-v5-c-drawer__content">
+                            <div class="pf-v5-c-drawer__body">
+                                <div class="pf-v5-c-login ${this.getLayout()}">
                                     <div class="${this.getLayoutClass()}">
-                                        <header class="pf-c-login__header">
-                                            <div class="pf-c-brand ak-brand">
+                                        <header class="pf-v5-c-login__header">
+                                            <div class="pf-v5-c-brand ak-brand">
                                                 <img
                                                     src="${first(this.tenant?.brandingLogo, "")}"
                                                     alt="authentik Logo"
                                                 />
                                             </div>
                                         </header>
-                                        <div class="pf-c-login__main">
+                                        <div class="pf-v5-c-login__main">
                                             ${this.renderChallengeWrapper()}
                                         </div>
-                                        <footer class="pf-c-login__footer">
+                                        <footer class="pf-v5-c-login__footer">
                                             <p></p>
-                                            <ul class="pf-c-list pf-m-inline">
+                                            <ul class="pf-v5-c-list pf-m-inline">
                                                 ${this.tenant?.uiFooterLinks?.map((link) => {
                                                     return html`<li>
                                                         <a href="${link.href || ""}"

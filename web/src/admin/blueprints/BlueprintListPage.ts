@@ -97,7 +97,7 @@ export class BlueprintListPage extends TablePage<BlueprintInstance> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -105,14 +105,14 @@ export class BlueprintListPage extends TablePage<BlueprintInstance> {
 
     renderExpanded(item: BlueprintInstance): TemplateResult {
         return html`<td role="cell" colspan="4">
-            <div class="pf-c-table__expandable-row-content">
-                <dl class="pf-c-description-list pf-m-horizontal">
-                    <div class="pf-c-description-list__group">
-                        <dt class="pf-c-description-list__term">
-                            <span class="pf-c-description-list__text">${msg("Path")}</span>
+            <div class="pf-v5-c-table__expandable-row-content">
+                <dl class="pf-v5-c-description-list pf-m-horizontal">
+                    <div class="pf-v5-c-description-list__group">
+                        <dt class="pf-v5-c-description-list__term">
+                            <span class="pf-v5-c-description-list__text">${msg("Path")}</span>
                         </dt>
-                        <dd class="pf-c-description-list__description">
-                            <div class="pf-c-description-list__text">
+                        <dd class="pf-v5-c-description-list__description">
+                            <div class="pf-v5-c-description-list__text">
                                 <pre>${item.path}</pre>
                             </div>
                         </dd>
@@ -144,7 +144,7 @@ export class BlueprintListPage extends TablePage<BlueprintInstance> {
                     <span slot="submit"> ${msg("Update")} </span>
                     <span slot="header"> ${msg("Update Blueprint")} </span>
                     <ak-blueprint-form slot="form" .instancePk=${item.pk}> </ak-blueprint-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-edit"></i>
                     </button> </ak-forms-modal
                 ><ak-action-button
@@ -175,7 +175,7 @@ export class BlueprintListPage extends TablePage<BlueprintInstance> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Blueprint Instance")} </span>
                 <ak-blueprint-form slot="form"> </ak-blueprint-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Create")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Create")}</button>
             </ak-forms-modal>
         `;
     }

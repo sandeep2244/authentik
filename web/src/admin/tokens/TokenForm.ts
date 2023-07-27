@@ -42,7 +42,7 @@ export class TokenForm extends ModelForm<Token, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal
                 label=${msg("Identifier")}
                 name="identifier"
@@ -51,10 +51,10 @@ export class TokenForm extends ModelForm<Token, string> {
                 <input
                     type="text"
                     value="${first(this.instance?.identifier, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Unique identifier the token is referenced by.")}
                 </p>
             </ak-form-element-horizontal>
@@ -108,24 +108,24 @@ export class TokenForm extends ModelForm<Token, string> {
                 <input
                     type="text"
                     value="${first(this.instance?.description, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
             </ak-form-element-horizontal>
             <ak-form-element-horizontal name="expiring">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.expiring, true)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Expiring")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Expiring")}</span>
                 </label>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "If this is selected, the token will expire. Upon expiration, the token will be rotated.",
                     )}
@@ -136,7 +136,7 @@ export class TokenForm extends ModelForm<Token, string> {
                     type="datetime-local"
                     data-type="datetime-local"
                     value="${dateTimeLocal(first(this.instance?.expires, new Date()))}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
             </ak-form-element-horizontal>
         </form>`;

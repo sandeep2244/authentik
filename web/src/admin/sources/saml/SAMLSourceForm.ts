@@ -88,12 +88,12 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal label=${msg("Name")} ?required=${true} name="name">
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -101,23 +101,23 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.slug)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-element-horizontal name="enabled">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.enabled, true)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Enabled")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Enabled")}</span>
                 </label>
             </ak-form-element-horizontal>
             <ak-form-element-horizontal
@@ -125,7 +125,7 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                 ?required=${true}
                 name="userMatchingMode"
             >
-                <select class="pf-c-form-control">
+                <select class="pf-v5-c-form-control">
                     <option
                         value=${UserMatchingModeEnum.Identifier}
                         ?selected=${this.instance?.userMatchingMode ===
@@ -165,10 +165,10 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
             </ak-form-element-horizontal>
             ${rootInterface()?.config?.capabilities.includes(CapabilitiesEnum.CanSaveMedia)
                 ? html`<ak-form-element-horizontal label=${msg("Icon")} name="icon">
-                          <input type="file" value="" class="pf-c-form-control" />
+                          <input type="file" value="" class="pf-v5-c-form-control" />
                           ${this.instance?.icon
                               ? html`
-                                    <p class="pf-c-form__helper-text">
+                                    <p class="pf-v5-c-form__helper-text">
                                         ${msg("Currently set to:")} ${this.instance?.icon}
                                     </p>
                                 `
@@ -177,25 +177,25 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                       ${this.instance?.icon
                           ? html`
                                 <ak-form-element-horizontal>
-                                    <label class="pf-c-switch">
+                                    <label class="pf-v5-c-switch">
                                         <input
-                                            class="pf-c-switch__input"
+                                            class="pf-v5-c-switch__input"
                                             type="checkbox"
                                             @change=${(ev: Event) => {
                                                 const target = ev.target as HTMLInputElement;
                                                 this.clearIcon = target.checked;
                                             }}
                                         />
-                                        <span class="pf-c-switch__toggle">
-                                            <span class="pf-c-switch__toggle-icon">
+                                        <span class="pf-v5-c-switch__toggle">
+                                            <span class="pf-v5-c-switch__toggle-icon">
                                                 <i class="fas fa-check" aria-hidden="true"></i>
                                             </span>
                                         </span>
-                                        <span class="pf-c-switch__label">
+                                        <span class="pf-v5-c-switch__label">
                                             ${msg("Clear icon")}
                                         </span>
                                     </label>
-                                    <p class="pf-c-form__helper-text">
+                                    <p class="pf-v5-c-form__helper-text">
                                         ${msg("Delete currently set icon.")}
                                     </p>
                                 </ak-form-element-horizontal>
@@ -205,14 +205,14 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                       <input
                           type="text"
                           value="${first(this.instance?.icon, "")}"
-                          class="pf-c-form-control"
+                          class="pf-v5-c-form-control"
                       />
-                      <p class="pf-c-form__helper-text">${iconHelperText}</p>
+                      <p class="pf-v5-c-form__helper-text">${iconHelperText}</p>
                   </ak-form-element-horizontal>`}
 
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Protocol settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("SSO URL")}
                         ?required=${true}
@@ -221,10 +221,10 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                         <input
                             type="text"
                             value="${ifDefined(this.instance?.ssoUrl)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("URL that the initial Login request is sent to.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -232,9 +232,9 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                         <input
                             type="text"
                             value="${ifDefined(this.instance?.sloUrl || "")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Optional URL if the IDP supports Single-Logout.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -242,9 +242,9 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                         <input
                             type="text"
                             value="${ifDefined(this.instance?.issuer)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Also known as Entity ID. Defaults the Metadata URL.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -306,7 +306,7 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Keypair which is used to sign outgoing requests. Leave empty to disable signing.",
                             )}
@@ -344,7 +344,7 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "When selected, incoming assertion's Signatures will be validated against this certificate. To allow unsigned Requests, leave on default.",
                             )}
@@ -354,24 +354,24 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
             </ak-form-group>
             <ak-form-group>
                 <span slot="header"> ${msg("Advanced protocol settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal name="allowIdpInitiated">
-                        <label class="pf-c-switch">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${first(this.instance?.allowIdpInitiated, false)}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label"
+                            <span class="pf-v5-c-switch__label"
                                 >${msg(" Allow IDP-initiated logins")}</span
                             >
                         </label>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Allows authentication flows initiated by the IdP. This can be a security risk, as no validation of the request ID is done.",
                             )}
@@ -382,7 +382,7 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                         ?required=${true}
                         name="nameIdPolicy"
                     >
-                        <select class="pf-c-form-control">
+                        <select class="pf-v5-c-form-control">
                             <option
                                 value=${NameIdPolicyEnum._20nameidFormatpersistent}
                                 ?selected=${this.instance?.nameIdPolicy ===
@@ -427,9 +427,9 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                                 this.instance?.userPathTemplate,
                                 "goauthentik.io/sources/%(slug)s",
                             )}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                         />
-                        <p class="pf-c-form__helper-text">${placeholderHelperText}</p>
+                        <p class="pf-v5-c-form__helper-text">${placeholderHelperText}</p>
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal
                         label=${msg("Delete temporary users after")}
@@ -439,10 +439,10 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                         <input
                             type="text"
                             value="${this.instance?.temporaryUserDeleteAfter || "days=1"}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Time offset when temporary users should be deleted. This only applies if your IDP uses the NameID Format 'transient', and the user doesn't log out manually.",
                             )}
@@ -515,7 +515,7 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
             </ak-form-group>
             <ak-form-group>
                 <span slot="header"> ${msg("Flow settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Pre-authentication flow")}
                         ?required=${true}
@@ -559,7 +559,7 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Flow used before authentication.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -605,7 +605,7 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Flow to use when authenticating existing users.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -651,7 +651,7 @@ export class SAMLSourceForm extends ModelForm<SAMLSource, string> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Flow to use when enrolling new users.")}
                         </p>
                     </ak-form-element-horizontal>

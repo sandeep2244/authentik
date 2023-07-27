@@ -67,22 +67,22 @@ export class UserInterface extends Interface {
             PFDropdown,
             PFNotificationBadge,
             css`
-                .pf-c-page__main,
-                .pf-c-drawer__content,
-                .pf-c-page__drawer {
+                .pf-v5-c-page__main,
+                .pf-v5-c-drawer__content,
+                .pf-v5-c-page__drawer {
                     z-index: auto !important;
                     background-color: transparent !important;
                 }
-                .pf-c-page {
+                .pf-v5-c-page {
                     background-color: transparent;
                 }
                 .background-wrapper {
-                    background-color: var(--pf-c-page--BackgroundColor) !important;
+                    background-color: var(--pf-v5-c-page--BackgroundColor) !important;
                 }
                 .display-none {
                     display: none;
                 }
-                .pf-c-brand {
+                .pf-v5-c-brand {
                     min-height: 32px;
                     height: 32px;
                 }
@@ -157,13 +157,13 @@ export class UserInterface extends Interface {
         }
         return html` <ak-locale-context>
             <ak-enterprise-status interface="user"></ak-enterprise-status>
-            <div class="pf-c-page">
+            <div class="pf-v5-c-page">
                 <div class="background-wrapper" style="${this.uiConfig.theme.background}"></div>
-                <header class="pf-c-page__header">
-                    <div class="pf-c-page__header-brand">
-                        <a href="#/" class="pf-c-page__header-brand-link">
+                <header class="pf-v5-c-page__header">
+                    <div class="pf-v5-c-page__header-brand">
+                        <a href="#/" class="pf-v5-c-page__header-brand-link">
                             <img
-                                class="pf-c-brand"
+                                class="pf-v5-c-brand"
                                 src="${first(
                                     this.tenant?.brandingLogo,
                                     DefaultTenant.brandingLogo,
@@ -172,14 +172,14 @@ export class UserInterface extends Interface {
                             />
                         </a>
                     </div>
-                    <div class="pf-c-page__header-tools">
-                        <div class="pf-c-page__header-tools-group">
+                    <div class="pf-v5-c-page__header-tools">
+                        <div class="pf-v5-c-page__header-tools-group">
                             ${this.uiConfig.enabledFeatures.apiDrawer
                                 ? html`<div
-                                      class="pf-c-page__header-tools-item pf-m-hidden pf-m-visible-on-lg"
+                                      class="pf-v5-c-page__header-tools-item pf-m-hidden pf-m-visible-on-lg"
                                   >
                                       <button
-                                          class="pf-c-button pf-m-plain"
+                                          class="pf-v5-c-button pf-m-plain"
                                           type="button"
                                           @click=${() => {
                                               this.apiDrawerOpen = !this.apiDrawerOpen;
@@ -194,10 +194,10 @@ export class UserInterface extends Interface {
                                 : html``}
                             ${this.uiConfig.enabledFeatures.notificationDrawer
                                 ? html`<div
-                                      class="pf-c-page__header-tools-item pf-m-hidden pf-m-visible-on-lg"
+                                      class="pf-v5-c-page__header-tools-item pf-m-hidden pf-m-visible-on-lg"
                                   >
                                       <button
-                                          class="pf-c-button pf-m-plain"
+                                          class="pf-v5-c-button pf-m-plain"
                                           type="button"
                                           aria-label="${msg("Unread notifications")}"
                                           @click=${() => {
@@ -210,13 +210,13 @@ export class UserInterface extends Interface {
                                           }}
                                       >
                                           <span
-                                              class="pf-c-notification-badge ${this
+                                              class="pf-v5-c-notification-badge ${this
                                                   .notificationsCount > 0
                                                   ? "pf-m-unread"
                                                   : ""}"
                                           >
                                               <i class="pf-icon-bell" aria-hidden="true"></i>
-                                              <span class="pf-c-notification-badge__count"
+                                              <span class="pf-v5-c-notification-badge__count"
                                                   >${this.notificationsCount}</span
                                               >
                                           </span>
@@ -224,9 +224,9 @@ export class UserInterface extends Interface {
                                   </div> `
                                 : html``}
                             ${this.uiConfig.enabledFeatures.settings
-                                ? html` <div class="pf-c-page__header-tools-item">
+                                ? html` <div class="pf-v5-c-page__header-tools-item">
                                       <a
-                                          class="pf-c-button pf-m-plain"
+                                          class="pf-v5-c-button pf-m-plain"
                                           type="button"
                                           href="#/settings"
                                       >
@@ -234,17 +234,17 @@ export class UserInterface extends Interface {
                                       </a>
                                   </div>`
                                 : html``}
-                            <div class="pf-c-page__header-tools-item">
+                            <div class="pf-v5-c-page__header-tools-item">
                                 <a
                                     href="/flows/-/default/invalidation/"
-                                    class="pf-c-button pf-m-plain"
+                                    class="pf-v5-c-button pf-m-plain"
                                 >
                                     <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
                                 </a>
                             </div>
                             ${this.me.user.isSuperuser
                                 ? html`<a
-                                      class="pf-c-button pf-m-primary pf-m-small pf-u-display-none pf-u-display-block-on-md"
+                                      class="pf-v5-c-button pf-m-primary pf-m-small pf-v5-u-display-none pf-v5-u-display-block-on-md"
                                       href="/if/admin"
                                   >
                                       ${msg("Admin interface")}
@@ -253,8 +253,8 @@ export class UserInterface extends Interface {
                         </div>
                         ${this.me.original
                             ? html`&nbsp;
-                                  <div class="pf-c-page__header-tools">
-                                      <div class="pf-c-page__header-tools-group">
+                                  <div class="pf-v5-c-page__header-tools">
+                                      <div class="pf-v5-c-page__header-tools-group">
                                           <ak-action-button
                                               class="pf-m-warning pf-m-small"
                                               .apiRequest=${() => {
@@ -270,33 +270,33 @@ export class UserInterface extends Interface {
                                       </div>
                                   </div>`
                             : html``}
-                        <div class="pf-c-page__header-tools-group">
+                        <div class="pf-v5-c-page__header-tools-group">
                             <div
-                                class="pf-c-page__header-tools-item pf-m-hidden pf-m-visible-on-md"
+                                class="pf-v5-c-page__header-tools-item pf-m-hidden pf-m-visible-on-md"
                             >
                                 ${userDisplay}
                             </div>
                         </div>
                         <img
-                            class="pf-c-avatar"
+                            class="pf-v5-c-avatar"
                             src=${this.me.user.avatar}
                             alt="${msg("Avatar image")}"
                         />
                     </div>
                 </header>
-                <div class="pf-c-page__drawer">
+                <div class="pf-v5-c-page__drawer">
                     <div
-                        class="pf-c-drawer ${this.notificationDrawerOpen || this.apiDrawerOpen
+                        class="pf-v5-c-drawer ${this.notificationDrawerOpen || this.apiDrawerOpen
                             ? "pf-m-expanded"
                             : "pf-m-collapsed"}"
                     >
-                        <div class="pf-c-drawer__main">
-                            <div class="pf-c-drawer__content">
-                                <div class="pf-c-drawer__body">
-                                    <main class="pf-c-page__main">
+                        <div class="pf-v5-c-drawer__main">
+                            <div class="pf-v5-c-drawer__content">
+                                <div class="pf-v5-c-drawer__body">
+                                    <main class="pf-v5-c-page__main">
                                         <ak-router-outlet
                                             role="main"
-                                            class="pf-l-bullseye__item pf-c-page__main"
+                                            class="pf-v5-l-bullseye__item pf-v5-c-page__main"
                                             tabindex="-1"
                                             id="main-content"
                                             defaultUrl="/library"
@@ -307,14 +307,14 @@ export class UserInterface extends Interface {
                                 </div>
                             </div>
                             <ak-notification-drawer
-                                class="pf-c-drawer__panel pf-m-width-33 ${this
+                                class="pf-v5-c-drawer__panel pf-m-width-33 ${this
                                     .notificationDrawerOpen
                                     ? ""
                                     : "display-none"}"
                                 ?hidden=${!this.notificationDrawerOpen}
                             ></ak-notification-drawer>
                             <ak-api-drawer
-                                class="pf-c-drawer__panel pf-m-width-33 ${this.apiDrawerOpen
+                                class="pf-v5-c-drawer__panel pf-m-width-33 ${this.apiDrawerOpen
                                     ? ""
                                     : "display-none"}"
                                 ?hidden=${!this.apiDrawerOpen}

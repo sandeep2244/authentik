@@ -111,7 +111,7 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
         }
         return html` <ak-form-group .expanded=${true}>
             <span slot="header"> ${msg("URL settings")} </span>
-            <div slot="body" class="pf-c-form">
+            <div slot="body" class="pf-v5-c-form">
                 <ak-form-element-horizontal
                     label=${msg("Authorization URL")}
                     ?required=${true}
@@ -124,10 +124,10 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                             this.providerType.authorizationUrl,
                             "",
                         )}"
-                        class="pf-c-form-control"
+                        class="pf-v5-c-form-control"
                         required
                     />
-                    <p class="pf-c-form__helper-text">
+                    <p class="pf-v5-c-form__helper-text">
                         ${msg("URL the user is redirect to to consent the authorization.")}
                     </p>
                 </ak-form-element-horizontal>
@@ -143,10 +143,10 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                             this.providerType.accessTokenUrl,
                             "",
                         )}"
-                        class="pf-c-form-control"
+                        class="pf-v5-c-form-control"
                         required
                     />
-                    <p class="pf-c-form__helper-text">
+                    <p class="pf-v5-c-form__helper-text">
                         ${msg("URL used by authentik to retrieve tokens.")}
                     </p>
                 </ak-form-element-horizontal>
@@ -162,10 +162,10 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                             this.providerType.profileUrl,
                             "",
                         )}"
-                        class="pf-c-form-control"
+                        class="pf-v5-c-form-control"
                         required
                     />
-                    <p class="pf-c-form__helper-text">
+                    <p class="pf-v5-c-form__helper-text">
                         ${msg("URL used by authentik to get user information.")}
                     </p>
                 </ak-form-element-horizontal>
@@ -177,9 +177,9 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                           <input
                               type="text"
                               value="${first(this.instance?.requestTokenUrl, "")}"
-                              class="pf-c-form-control"
+                              class="pf-v5-c-form-control"
                           />
-                          <p class="pf-c-form__helper-text">
+                          <p class="pf-v5-c-form__helper-text">
                               ${msg(
                                   "URL used to request the initial token. This URL is only required for OAuth 1.",
                               )}
@@ -195,9 +195,9 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                               <input
                                   type="text"
                                   value="${ifDefined(this.instance?.oidcWellKnownUrl)}"
-                                  class="pf-c-form-control"
+                                  class="pf-v5-c-form-control"
                               />
-                              <p class="pf-c-form__helper-text">
+                              <p class="pf-v5-c-form__helper-text">
                                   ${msg(
                                       "OIDC well-known configuration URL. Can be used to automatically configure the URLs above.",
                                   )}
@@ -210,9 +210,9 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                               <input
                                   type="text"
                                   value="${ifDefined(this.instance?.oidcJwksUrl)}"
-                                  class="pf-c-form-control"
+                                  class="pf-v5-c-form-control"
                               />
-                              <p class="pf-c-form__helper-text">
+                              <p class="pf-v5-c-form__helper-text">
                                   ${msg(
                                       "JSON Web Key URL. Keys from the URL will be used to validate JWTs from this source.",
                                   )}
@@ -225,7 +225,7 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                                   value="${JSON.stringify(first(this.instance?.oidcJwks, {}))}"
                               >
                               </ak-codemirror>
-                              <p class="pf-c-form__helper-text">${msg("Raw JWKS data.")}</p>
+                              <p class="pf-v5-c-form__helper-text">${msg("Raw JWKS data.")}</p>
                           </ak-form-element-horizontal>
                       `
                     : html``}
@@ -234,12 +234,12 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal label=${msg("Name")} ?required=${true} name="name">
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -247,23 +247,23 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.slug)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-element-horizontal name="enabled">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.enabled, true)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Enabled")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Enabled")}</span>
                 </label>
             </ak-form-element-horizontal>
             <ak-form-element-horizontal
@@ -271,7 +271,7 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                 ?required=${true}
                 name="userMatchingMode"
             >
-                <select class="pf-c-form-control">
+                <select class="pf-v5-c-form-control">
                     <option
                         value=${UserMatchingModeEnum.Identifier}
                         ?selected=${this.instance?.userMatchingMode ===
@@ -316,16 +316,16 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                         this.instance?.userPathTemplate,
                         "goauthentik.io/sources/%(slug)s",
                     )}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
-                <p class="pf-c-form__helper-text">${placeholderHelperText}</p>
+                <p class="pf-v5-c-form__helper-text">${placeholderHelperText}</p>
             </ak-form-element-horizontal>
             ${rootInterface()?.config?.capabilities.includes(CapabilitiesEnum.CanSaveMedia)
                 ? html`<ak-form-element-horizontal label=${msg("Icon")} name="icon">
-                          <input type="file" value="" class="pf-c-form-control" />
+                          <input type="file" value="" class="pf-v5-c-form-control" />
                           ${this.instance?.icon
                               ? html`
-                                    <p class="pf-c-form__helper-text">
+                                    <p class="pf-v5-c-form__helper-text">
                                         ${msg("Currently set to:")} ${this.instance?.icon}
                                     </p>
                                 `
@@ -334,25 +334,25 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                       ${this.instance?.icon
                           ? html`
                                 <ak-form-element-horizontal>
-                                    <label class="pf-c-switch">
+                                    <label class="pf-v5-c-switch">
                                         <input
-                                            class="pf-c-switch__input"
+                                            class="pf-v5-c-switch__input"
                                             type="checkbox"
                                             @change=${(ev: Event) => {
                                                 const target = ev.target as HTMLInputElement;
                                                 this.clearIcon = target.checked;
                                             }}
                                         />
-                                        <span class="pf-c-switch__toggle">
-                                            <span class="pf-c-switch__toggle-icon">
+                                        <span class="pf-v5-c-switch__toggle">
+                                            <span class="pf-v5-c-switch__toggle-icon">
                                                 <i class="fas fa-check" aria-hidden="true"></i>
                                             </span>
                                         </span>
-                                        <span class="pf-c-switch__label">
+                                        <span class="pf-v5-c-switch__label">
                                             ${msg("Clear icon")}
                                         </span>
                                     </label>
-                                    <p class="pf-c-form__helper-text">
+                                    <p class="pf-v5-c-form__helper-text">
                                         ${msg("Delete currently set icon.")}
                                     </p>
                                 </ak-form-element-horizontal>
@@ -362,14 +362,14 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                       <input
                           type="text"
                           value="${first(this.instance?.icon, "")}"
-                          class="pf-c-form-control"
+                          class="pf-v5-c-form-control"
                       />
-                      <p class="pf-c-form__helper-text">${iconHelperText}</p>
+                      <p class="pf-v5-c-form__helper-text">${iconHelperText}</p>
                   </ak-form-element-horizontal>`}
 
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Protocol settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Consumer key")}
                         ?required=${true}
@@ -378,7 +378,7 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                         <input
                             type="text"
                             value="${ifDefined(this.instance?.consumerKey)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
                     </ak-form-element-horizontal>
@@ -388,15 +388,15 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                         ?writeOnly=${this.instance !== undefined}
                         name="consumerSecret"
                     >
-                        <textarea class="pf-c-form-control"></textarea>
+                        <textarea class="pf-v5-c-form-control"></textarea>
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal label=${msg("Scopes")} name="additionalScopes">
                         <input
                             type="text"
                             value="${first(this.instance?.additionalScopes, "")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Additional scopes to be passed to the OAuth Provider, separated by space. To replace existing scopes, prefix with *.",
                             )}
@@ -407,7 +407,7 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
             ${this.renderUrlOptions()}
             <ak-form-group>
                 <span slot="header"> ${msg("Flow settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Authentication flow")}
                         ?required=${true}
@@ -450,7 +450,7 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Flow to use when authenticating existing users.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -496,7 +496,7 @@ export class OAuthSourceForm extends ModelForm<OAuthSource, string> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Flow to use when enrolling new users.")}
                         </p>
                     </ak-form-element-horizontal>

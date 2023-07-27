@@ -71,12 +71,12 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal label=${msg("Name")} ?required=${true} name="name">
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -111,7 +111,7 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                     }}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Flow used when a user access this provider and is not authenticated.")}
                 </p>
             </ak-form-element-horizontal>
@@ -146,14 +146,14 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                     }}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Flow used when authorizing this provider.")}
                 </p>
             </ak-form-element-horizontal>
 
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Protocol settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("ACS URL")}
                         ?required=${true}
@@ -162,7 +162,7 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                         <input
                             type="text"
                             value="${ifDefined(this.instance?.acsUrl)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
                     </ak-form-element-horizontal>
@@ -174,10 +174,10 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                         <input
                             type="text"
                             value="${this.instance?.issuer || "authentik"}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">${msg("Also known as EntityID.")}</p>
+                        <p class="pf-v5-c-form__helper-text">${msg("Also known as EntityID.")}</p>
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal
                         label=${msg("Service Provider Binding")}
@@ -199,7 +199,7 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                             .value=${this.instance?.spBinding}
                         >
                         </ak-radio>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Determines how authentik sends the response back to the Service Provider.",
                             )}
@@ -209,7 +209,7 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                         <input
                             type="text"
                             value="${ifDefined(this.instance?.audience)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                         />
                     </ak-form-element-horizontal>
                 </div>
@@ -217,7 +217,7 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
 
             <ak-form-group>
                 <span slot="header"> ${msg("Advanced protocol settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Signing Certificate")}
                         name="signingKp"
@@ -251,7 +251,7 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Certificate used to sign outgoing Responses going to the Service Provider.",
                             )}
@@ -289,7 +289,7 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "When selected, incoming assertion's Signatures will be validated against this certificate. To allow unsigned Requests, leave on default.",
                             )}
@@ -301,7 +301,7 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                         ?required=${true}
                         name="propertyMappings"
                     >
-                        <select class="pf-c-form-control" multiple>
+                        <select class="pf-v5-c-form-control" multiple>
                             ${this.propertyMappings?.results.map((mapping) => {
                                 let selected = false;
                                 if (!this.instance?.propertyMappings) {
@@ -324,7 +324,7 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                                 </option>`;
                             })}
                         </select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Hold control/command to select multiple items.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -361,7 +361,7 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Configure how the NameID value will be created. When left empty, the NameIDPolicy of the incoming request will be respected.",
                             )}
@@ -376,10 +376,10 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                         <input
                             type="text"
                             value="${this.instance?.assertionValidNotBefore || "minutes=-5"}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Configure the maximum allowed time drift for an assertion.")}
                         </p>
                         <ak-utils-time-delta-help></ak-utils-time-delta-help>
@@ -392,10 +392,10 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                         <input
                             type="text"
                             value="${this.instance?.assertionValidNotOnOrAfter || "minutes=5"}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Assertion not valid on or after current time + this value.")}
                         </p>
                         <ak-utils-time-delta-help></ak-utils-time-delta-help>
@@ -408,10 +408,10 @@ export class SAMLProviderFormPage extends ModelForm<SAMLProvider, number> {
                         <input
                             type="text"
                             value="${this.instance?.sessionValidNotOnOrAfter || "minutes=86400"}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Session not valid on or after current time + this value.")}
                         </p>
                         <ak-utils-time-delta-help></ak-utils-time-delta-help>

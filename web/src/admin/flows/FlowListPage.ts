@@ -81,7 +81,7 @@ export class FlowListPage extends TablePage<Flow> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -102,12 +102,12 @@ export class FlowListPage extends TablePage<Flow> {
                     <span slot="submit"> ${msg("Update")} </span>
                     <span slot="header"> ${msg("Update Flow")} </span>
                     <ak-flow-form slot="form" .instancePk=${item.slug}> </ak-flow-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-edit"></i>
                     </button>
                 </ak-forms-modal>
                 <button
-                    class="pf-c-button pf-m-plain"
+                    class="pf-v5-c-button pf-m-plain"
                     @click=${() => {
                         const finalURL = `${window.location.origin}/if/flow/${item.slug}/${AndNext(
                             `${window.location.pathname}#${window.location.hash}`,
@@ -117,7 +117,7 @@ export class FlowListPage extends TablePage<Flow> {
                 >
                     <i class="fas fa-play"></i>
                 </button>
-                <a class="pf-c-button pf-m-plain" href=${item.exportUrl}>
+                <a class="pf-v5-c-button pf-m-plain" href=${item.exportUrl}>
                     <i class="fas fa-download"></i>
                 </a>`,
         ];
@@ -129,13 +129,13 @@ export class FlowListPage extends TablePage<Flow> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Flow")} </span>
                 <ak-flow-form slot="form"> </ak-flow-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Create")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Create")}</button>
             </ak-forms-modal>
             <ak-forms-modal>
                 <span slot="submit"> ${msg("Import")} </span>
                 <span slot="header"> ${msg("Import Flow")} </span>
                 <ak-flow-import-form slot="form"> </ak-flow-import-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Import")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Import")}</button>
             </ak-forms-modal>
         `;
     }
@@ -158,7 +158,7 @@ export class FlowListPage extends TablePage<Flow> {
             This will cause all flows to be re-evaluated on their next usage.`,
                     )}
                 </p>
-                <button slot="trigger" class="pf-c-button pf-m-secondary" type="button">
+                <button slot="trigger" class="pf-v5-c-button pf-m-secondary" type="button">
                     ${msg("Clear cache")}
                 </button>
                 <div slot="modal"></div>

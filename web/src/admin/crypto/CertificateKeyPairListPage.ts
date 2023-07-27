@@ -85,7 +85,7 @@ export class CertificateKeyPairListPage extends TablePage<CertificateKeyPair> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -122,7 +122,7 @@ export class CertificateKeyPairListPage extends TablePage<CertificateKeyPair> {
                 <span slot="header"> ${msg("Update Certificate-Key Pair")} </span>
                 <ak-crypto-certificate-form slot="form" .instancePk=${item.pk}>
                 </ak-crypto-certificate-form>
-                <button slot="trigger" class="pf-c-button pf-m-plain">
+                <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                     <i class="fas fa-edit"></i>
                 </button>
             </ak-forms-modal>`,
@@ -131,50 +131,50 @@ export class CertificateKeyPairListPage extends TablePage<CertificateKeyPair> {
 
     renderExpanded(item: CertificateKeyPair): TemplateResult {
         return html`<td role="cell" colspan="4">
-                <div class="pf-c-table__expandable-row-content">
-                    <dl class="pf-c-description-list pf-m-horizontal">
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text"
+                <div class="pf-v5-c-table__expandable-row-content">
+                    <dl class="pf-v5-c-description-list pf-m-horizontal">
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text"
                                     >${msg("Certificate Fingerprint (SHA1)")}</span
                                 >
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     ${item.fingerprintSha1}
                                 </div>
                             </dd>
                         </div>
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text"
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text"
                                     >${msg("Certificate Fingerprint (SHA256)")}</span
                                 >
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     ${item.fingerprintSha256}
                                 </div>
                             </dd>
                         </div>
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text"
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text"
                                     >${msg("Certificate Subject")}</span
                                 >
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">${item.certSubject}</div>
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">${item.certSubject}</div>
                             </dd>
                         </div>
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text">${msg("Download")}</span>
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text">${msg("Download")}</span>
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     <a
-                                        class="pf-c-button pf-m-secondary"
+                                        class="pf-v5-c-button pf-m-secondary"
                                         target="_blank"
                                         href=${item.certificateDownloadUrl}
                                     >
@@ -182,7 +182,7 @@ export class CertificateKeyPairListPage extends TablePage<CertificateKeyPair> {
                                     </a>
                                     ${item.privateKeyAvailable
                                         ? html`<a
-                                              class="pf-c-button pf-m-secondary"
+                                              class="pf-v5-c-button pf-m-secondary"
                                               target="_blank"
                                               href=${item.privateKeyDownloadUrl}
                                           >
@@ -205,14 +205,14 @@ export class CertificateKeyPairListPage extends TablePage<CertificateKeyPair> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Certificate-Key Pair")} </span>
                 <ak-crypto-certificate-form slot="form"> </ak-crypto-certificate-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Create")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Create")}</button>
             </ak-forms-modal>
             <ak-forms-modal>
                 <span slot="submit"> ${msg("Generate")} </span>
                 <span slot="header"> ${msg("Generate Certificate-Key Pair")} </span>
                 <ak-crypto-certificate-generate-form slot="form">
                 </ak-crypto-certificate-generate-form>
-                <button slot="trigger" class="pf-c-button pf-m-secondary">
+                <button slot="trigger" class="pf-v5-c-button pf-m-secondary">
                     ${msg("Generate")}
                 </button>
             </ak-forms-modal>

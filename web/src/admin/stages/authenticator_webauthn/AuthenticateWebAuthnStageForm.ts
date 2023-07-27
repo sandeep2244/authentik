@@ -55,7 +55,7 @@ export class AuthenticateWebAuthnStageForm extends ModelForm<AuthenticateWebAuth
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "Stage used to configure a WebAutnn authenticator (i.e. Yubikey, FaceID/Windows Hello).",
@@ -65,7 +65,7 @@ export class AuthenticateWebAuthnStageForm extends ModelForm<AuthenticateWebAuth
                 <input
                     type="text"
                     value="${first(this.instance?.name, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -77,9 +77,9 @@ export class AuthenticateWebAuthnStageForm extends ModelForm<AuthenticateWebAuth
                 <input
                     type="text"
                     value="${first(this.instance?.friendlyName, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Display name of this authenticator, used by users when they enroll an authenticator.",
                     )}
@@ -87,7 +87,7 @@ export class AuthenticateWebAuthnStageForm extends ModelForm<AuthenticateWebAuth
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("User verification")}
                         ?required=${true}
@@ -207,7 +207,7 @@ export class AuthenticateWebAuthnStageForm extends ModelForm<AuthenticateWebAuth
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage.",
                             )}

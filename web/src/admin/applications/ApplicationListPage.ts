@@ -60,7 +60,7 @@ export class ApplicationListPage extends TablePage<Application> {
             PFCard,
             css`
                 /* Fix alignment issues with images in tables */
-                .pf-c-table tbody > tr > * {
+                .pf-v5-c-table tbody > tr > * {
                     vertical-align: middle;
                 }
                 tr td:first-child {
@@ -69,8 +69,8 @@ export class ApplicationListPage extends TablePage<Application> {
                     text-align: center;
                     vertical-align: middle;
                 }
-                .pf-c-sidebar.pf-m-gutter > .pf-c-sidebar__main > * + * {
-                    margin-left: calc(var(--pf-c-sidebar__main--child--MarginLeft) / 2);
+                .pf-v5-c-sidebar.pf-m-gutter > .pf-v5-c-sidebar__main > * + * {
+                    margin-left: calc(var(--pf-v5-c-sidebar__main--child--MarginLeft) / 2);
                 }
             `,
         );
@@ -94,9 +94,9 @@ export class ApplicationListPage extends TablePage<Application> {
                 .open=${getURLParam("createWizard", false)}
                 .showButton=${false}
             ></ak-application-wizard>
-            <div class="pf-c-sidebar__panel pf-m-width-25">
-                <div class="pf-c-card">
-                    <div class="pf-c-card__body">
+            <div class="pf-v5-c-sidebar__panel pf-m-width-25">
+                <div class="pf-v5-c-card">
+                    <div class="pf-v5-c-card__body">
                         <ak-markdown .md=${MDApplication}></ak-markdown>
                     </div>
                 </div>
@@ -119,7 +119,7 @@ export class ApplicationListPage extends TablePage<Application> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -132,7 +132,7 @@ export class ApplicationListPage extends TablePage<Application> {
                 return html`<i class="fas ${icon}"></i>`;
             }
             return html`<img
-                class="app-icon pf-c-avatar"
+                class="app-icon pf-v5-c-avatar"
                 src="${ifDefined(item.metaIcon)}"
                 alt="${msg("Application Icon")}"
             />`;
@@ -159,12 +159,12 @@ export class ApplicationListPage extends TablePage<Application> {
                     <span slot="header"> ${msg("Update Application")} </span>
                     <ak-application-form slot="form" .instancePk=${item.slug}>
                     </ak-application-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-edit"></i>
                     </button>
                 </ak-forms-modal>
                 ${item.launchUrl
-                    ? html`<a href=${item.launchUrl} target="_blank" class="pf-c-button pf-m-plain">
+                    ? html`<a href=${item.launchUrl} target="_blank" class="pf-v5-c-button pf-m-plain">
                           <i class="fas fa-share-square"></i>
                       </a>`
                     : html``}`,
@@ -176,7 +176,7 @@ export class ApplicationListPage extends TablePage<Application> {
             <span slot="submit"> ${msg("Create")} </span>
             <span slot="header"> ${msg("Create Application")} </span>
             <ak-application-form slot="form"> </ak-application-form>
-            <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Create")}</button>
+            <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Create")}</button>
         </ak-forms-modal>`;
     }
 }

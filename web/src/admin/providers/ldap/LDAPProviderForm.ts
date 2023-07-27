@@ -59,12 +59,12 @@ export class LDAPProviderFormPage extends ModelForm<LDAPProvider, number> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal label=${msg("Name")} ?required=${true} name="name">
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -103,7 +103,7 @@ export class LDAPProviderFormPage extends ModelForm<LDAPProvider, number> {
                     }}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">${msg("Flow used for users to authenticate.")}</p>
+                <p class="pf-v5-c-form__helper-text">${msg("Flow used for users to authenticate.")}</p>
             </ak-form-element-horizontal>
             <ak-form-element-horizontal label=${msg("Search group")} name="searchGroup">
                 <ak-search-select
@@ -129,7 +129,7 @@ export class LDAPProviderFormPage extends ModelForm<LDAPProvider, number> {
                     ?blankable=${true}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Users in the selected group can do search queries. If no group is selected, no LDAP Searches are allowed.",
                     )}
@@ -157,7 +157,7 @@ export class LDAPProviderFormPage extends ModelForm<LDAPProvider, number> {
                     .value=${this.instance?.bindMode}
                 >
                 </ak-radio>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Configure how the outpost authenticates requests.")}
                 </p>
             </ak-form-element-horizontal>
@@ -183,25 +183,25 @@ export class LDAPProviderFormPage extends ModelForm<LDAPProvider, number> {
                     .value=${this.instance?.searchMode}
                 >
                 </ak-radio>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Configure how the outpost queries the core authentik server's users.")}
                 </p>
             </ak-form-element-horizontal>
             <ak-form-element-horizontal name="mfaSupport">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.mfaSupport, true)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Code-based MFA Support")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Code-based MFA Support")}</span>
                 </label>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "When enabled, code-based multi-factor authentication can be used by appending a semicolon and the TOTP code to the password. This should only be enabled if all users that will bind to this provider have a TOTP device configured, as otherwise a password may incorrectly be rejected if it contains a semicolon.",
                     )}
@@ -210,7 +210,7 @@ export class LDAPProviderFormPage extends ModelForm<LDAPProvider, number> {
 
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Protocol settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Base DN")}
                         ?required=${true}
@@ -219,10 +219,10 @@ export class LDAPProviderFormPage extends ModelForm<LDAPProvider, number> {
                         <input
                             type="text"
                             value="${first(this.instance?.baseDn, "DC=ldap,DC=goauthentik,DC=io")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "LDAP DN under which bind requests and search requests can be made.",
                             )}
@@ -258,7 +258,7 @@ export class LDAPProviderFormPage extends ModelForm<LDAPProvider, number> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "The certificate for the above configured Base DN. As a fallback, the provider uses a self-signed certificate.",
                             )}
@@ -272,10 +272,10 @@ export class LDAPProviderFormPage extends ModelForm<LDAPProvider, number> {
                         <input
                             type="text"
                             value="${first(this.instance?.tlsServerName, "")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "DNS name for which the above configured certificate should be used. The certificate cannot be detected based on the base DN, as the SSL/TLS negotiation happens before such data is exchanged.",
                             )}
@@ -289,10 +289,10 @@ export class LDAPProviderFormPage extends ModelForm<LDAPProvider, number> {
                         <input
                             type="number"
                             value="${first(this.instance?.uidStartNumber, 2000)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "The start for uidNumbers, this number is added to the user.Pk to make sure that the numbers aren't too low for POSIX users. Default is 2000 to ensure that we don't collide with local users uidNumber",
                             )}
@@ -306,10 +306,10 @@ export class LDAPProviderFormPage extends ModelForm<LDAPProvider, number> {
                         <input
                             type="number"
                             value="${first(this.instance?.gidStartNumber, 4000)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "The start for gidNumbers, this number is added to a number generated from the group.Pk to make sure that the numbers aren't too low for POSIX groups. Default is 4000 to ensure that we don't collide with local groups or users primary groups gidNumber",
                             )}

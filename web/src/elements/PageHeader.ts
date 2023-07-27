@@ -68,14 +68,14 @@ export class PageHeader extends AKElement {
                     flex-direction: row;
                     min-height: 114px;
                 }
-                .pf-c-button.pf-m-plain {
+                .pf-v5-c-button.pf-m-plain {
                     background-color: transparent;
                     border-radius: 0px;
                 }
-                .pf-c-page__main-section.pf-m-light {
+                .pf-v5-c-page__main-section.pf-m-light {
                     background-color: transparent;
                 }
-                .pf-c-page__main-section {
+                .pf-v5-c-page__main-section {
                     flex-grow: 1;
                     display: flex;
                     flex-direction: column;
@@ -89,7 +89,7 @@ export class PageHeader extends AKElement {
                     font-size: 24px;
                 }
                 .notification-trigger.has-notifications {
-                    color: var(--pf-global--active-color--100);
+                    color: var(--pf-v5-global--active-color--100);
                 }
             `,
         ];
@@ -132,7 +132,7 @@ export class PageHeader extends AKElement {
         return html` <ak-enterprise-status interface="admin"></ak-enterprise-status>
             <div class="bar">
                 <button
-                    class="sidebar-trigger pf-c-button pf-m-plain"
+                    class="sidebar-trigger pf-v5-c-button pf-m-plain"
                     @click=${() => {
                         this.dispatchEvent(
                             new CustomEvent(EVENT_SIDEBAR_TOGGLE, {
@@ -144,8 +144,8 @@ export class PageHeader extends AKElement {
                 >
                     <i class="fas fa-bars"></i>
                 </button>
-                <section class="pf-c-page__main-section pf-m-light">
-                    <div class="pf-c-content">
+                <section class="pf-v5-c-page__main-section pf-m-light">
+                    <div class="pf-v5-c-content">
                         <h1>
                             ${this.renderIcon()}
                             <slot name="header"> ${this.header} </slot>
@@ -154,7 +154,7 @@ export class PageHeader extends AKElement {
                     </div>
                 </section>
                 <button
-                    class="notification-trigger pf-c-button pf-m-plain"
+                    class="notification-trigger pf-v5-c-button pf-m-plain"
                     @click=${() => {
                         this.dispatchEvent(
                             new CustomEvent(EVENT_API_DRAWER_TOGGLE, {
@@ -167,7 +167,7 @@ export class PageHeader extends AKElement {
                     <i class="fas fa-code"></i>
                 </button>
                 <button
-                    class="notification-trigger pf-c-button pf-m-plain ${this.hasNotifications
+                    class="notification-trigger pf-v5-c-button pf-m-plain ${this.hasNotifications
                         ? "has-notifications"
                         : ""}"
                     @click=${() => {

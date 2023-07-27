@@ -134,12 +134,12 @@ export class LibraryPage extends AKElement {
     }
 
     render() {
-        return html`<main role="main" class="pf-c-page__main" tabindex="-1" id="main-content">
-            <div class="pf-c-content header">
+        return html`<main role="main" class="pf-v5-c-page__main" tabindex="-1" id="main-content">
+            <div class="pf-v5-c-content header">
                 <h1>${msg("My applications")}</h1>
                 ${this.uiConfig.searchEnabled ? this.renderSearch() : html``}
             </div>
-            <section class="pf-c-page__main-section">
+            <section class="pf-v5-c-page__main-section">
                 ${loading(
                     this.apps,
                     html`${this.filteredApps.find(appHasLaunchUrl)

@@ -75,10 +75,10 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
                 <input
                     type="text"
                     value="${first(this.instance?.accountSid, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Get this value from https://console.twilio.com")}
                 </p>
             </ak-form-element-horizontal>
@@ -90,10 +90,10 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
                 <input
                     type="text"
                     value="${first(this.instance?.auth, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Get this value from https://console.twilio.com")}
                 </p>
             </ak-form-element-horizontal>`;
@@ -134,10 +134,10 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
                 <input
                     type="text"
                     value="${first(this.instance?.accountSid, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("This is the full endpoint to send POST requests to.")}
                 </p>
             </ak-form-element-horizontal>
@@ -149,9 +149,9 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
                 <input
                     type="text"
                     value="${first(this.instance?.auth, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "This is the username to be used with basic auth or the token when used with bearer token",
                     )}
@@ -165,9 +165,9 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
                 <input
                     type="text"
                     value="${first(this.instance?.authPassword, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("This is the password to be used with basic auth")}
                 </p>
             </ak-form-element-horizontal>
@@ -199,7 +199,7 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
                     ?blankable=${true}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Modify the payload sent to the custom provider.")}
                 </p>
             </ak-form-element-horizontal>
@@ -207,7 +207,7 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg("Stage used to configure an SMS-based TOTP authenticator.")}
             </div>
@@ -215,7 +215,7 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
                 <input
                     type="text"
                     value="${first(this.instance?.name, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -227,9 +227,9 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
                 <input
                     type="text"
                     value="${first(this.instance?.friendlyName, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Display name of this authenticator, used by users when they enroll an authenticator.",
                     )}
@@ -237,14 +237,14 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Provider")}
                         ?required=${true}
                         name="provider"
                     >
                         <select
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             @change=${(ev: Event) => {
                                 const current = (ev.target as HTMLInputElement).value;
                                 this.provider = current as ProviderEnum;
@@ -272,10 +272,10 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
                         <input
                             type="text"
                             value="${first(this.instance?.fromNumber, "")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Number the SMS will be sent from.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -283,20 +283,20 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
                         ? this.renderProviderGeneric()
                         : this.renderProviderTwillio()}
                     <ak-form-element-horizontal name="verifyOnly">
-                        <label class="pf-c-switch">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${first(this.instance?.verifyOnly, false)}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label">${msg("Hash phone number")}</span>
+                            <span class="pf-v5-c-switch__label">${msg("Hash phone number")}</span>
                         </label>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "If enabled, only a hash of the phone number will be saved. This can be done for data-protection reasons. Devices created from a stage with this enabled cannot be used with the authenticator validation stage.",
                             )}
@@ -336,7 +336,7 @@ export class AuthenticatorSMSStageForm extends ModelForm<AuthenticatorSMSStage, 
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage.",
                             )}

@@ -97,71 +97,71 @@ export class UserViewPage extends AKElement {
             <section
                 slot="page-overview"
                 data-tab-title="${msg("Overview")}"
-                class="pf-c-page__main-section pf-m-no-padding-mobile"
+                class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
             >
-                <div class="pf-l-grid pf-m-gutter">
+                <div class="pf-v5-l-grid pf-m-gutter">
                     <div
-                        class="pf-c-card pf-l-grid__item pf-m-12-col pf-m-3-col-on-xl pf-m-3-col-on-2xl"
+                        class="pf-v5-c-card pf-v5-l-grid__item pf-m-12-col pf-m-3-col-on-xl pf-m-3-col-on-2xl"
                     >
-                        <div class="pf-c-card__title">${msg("User Info")}</div>
-                        <div class="pf-c-card__body">
-                            <dl class="pf-c-description-list pf-m-2-col">
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+                        <div class="pf-v5-c-card__title">${msg("User Info")}</div>
+                        <div class="pf-v5-c-card__body">
+                            <dl class="pf-v5-c-description-list pf-m-2-col">
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("Username")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             ${this.user.username}
                                         </div>
                                     </dd>
                                 </div>
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("Name")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             ${this.user.name}
                                         </div>
                                     </dd>
                                 </div>
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("Email")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             ${this.user.email || "-"}
                                         </div>
                                     </dd>
                                 </div>
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("Last login")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             ${this.user.lastLogin?.toLocaleString()}
                                         </div>
                                     </dd>
                                 </div>
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("Active")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             <ak-label
                                                 color=${this.user.isActive
                                                     ? PFColor.Green
@@ -170,14 +170,14 @@ export class UserViewPage extends AKElement {
                                         </div>
                                     </dd>
                                 </div>
-                                <div class="pf-c-description-list__group">
-                                    <dt class="pf-c-description-list__term">
-                                        <span class="pf-c-description-list__text"
+                                <div class="pf-v5-c-description-list__group">
+                                    <dt class="pf-v5-c-description-list__term">
+                                        <span class="pf-v5-c-description-list__text"
                                             >${msg("Superuser")}</span
                                         >
                                     </dt>
-                                    <dd class="pf-c-description-list__description">
-                                        <div class="pf-c-description-list__text">
+                                    <dd class="pf-v5-c-description-list__description">
+                                        <div class="pf-v5-c-description-list__text">
                                             <ak-label
                                                 color=${this.user.isSuperuser
                                                     ? PFColor.Green
@@ -188,13 +188,13 @@ export class UserViewPage extends AKElement {
                                 </div>
                             </dl>
                         </div>
-                        <div class="pf-c-card__footer">
+                        <div class="pf-v5-c-card__footer">
                             <ak-forms-modal>
                                 <span slot="submit"> ${msg("Update")} </span>
                                 <span slot="header"> ${msg("Update User")} </span>
                                 <ak-user-form slot="form" .instancePk=${this.user.pk}>
                                 </ak-user-form>
-                                <button slot="trigger" class="pf-m-primary pf-c-button">
+                                <button slot="trigger" class="pf-m-primary pf-v5-c-button">
                                     ${msg("Edit")}
                                 </button>
                             </ak-forms-modal>
@@ -203,7 +203,7 @@ export class UserViewPage extends AKElement {
                             CapabilitiesEnum.CanImpersonate,
                         )
                             ? html`
-                                  <div class="pf-c-card__footer">
+                                  <div class="pf-v5-c-card__footer">
                                       <ak-action-button
                                           class="pf-m-tertiary"
                                           .apiRequest=${() => {
@@ -221,7 +221,7 @@ export class UserViewPage extends AKElement {
                                   </div>
                               `
                             : html``}
-                        <div class="pf-c-card__footer">
+                        <div class="pf-v5-c-card__footer">
                             <ak-user-active-form
                                 .obj=${this.user}
                                 objectLabel=${msg("User")}
@@ -234,12 +234,12 @@ export class UserViewPage extends AKElement {
                                     });
                                 }}
                             >
-                                <button slot="trigger" class="pf-c-button pf-m-warning">
+                                <button slot="trigger" class="pf-v5-c-button pf-m-warning">
                                     ${this.user.isActive ? msg("Deactivate") : msg("Activate")}
                                 </button>
                             </ak-user-active-form>
                         </div>
-                        <div class="pf-c-card__footer">
+                        <div class="pf-v5-c-card__footer">
                             <ak-action-button
                                 class="pf-m-secondary"
                                 .apiRequest=${() => {
@@ -270,7 +270,7 @@ export class UserViewPage extends AKElement {
                                 ${msg("Reset Password")}
                             </ak-action-button>
                         </div>
-                        <div class="pf-c-card__footer">
+                        <div class="pf-v5-c-card__footer">
                             <ak-forms-modal size=${PFSize.Medium}>
                                 <span slot="submit">${msg("Update password")}</span>
                                 <span slot="header">${msg("Update password")}</span>
@@ -278,27 +278,27 @@ export class UserViewPage extends AKElement {
                                     slot="form"
                                     .instancePk=${this.user?.pk}
                                 ></ak-user-password-form>
-                                <button slot="trigger" class="pf-c-button pf-m-secondary">
+                                <button slot="trigger" class="pf-v5-c-button pf-m-secondary">
                                     ${msg("Set password")}
                                 </button>
                             </ak-forms-modal>
                         </div>
                     </div>
                     <div
-                        class="pf-c-card pf-l-grid__item pf-m-12-col pf-m-9-col-on-xl pf-m-9-col-on-2xl"
+                        class="pf-v5-c-card pf-v5-l-grid__item pf-m-12-col pf-m-9-col-on-xl pf-m-9-col-on-2xl"
                     >
-                        <div class="pf-c-card__title">
+                        <div class="pf-v5-c-card__title">
                             ${msg("Actions over the last week (per 8 hours)")}
                         </div>
-                        <div class="pf-c-card__body">
+                        <div class="pf-v5-c-card__body">
                             <ak-charts-user userId=${this.user.pk || 0}> </ak-charts-user>
                         </div>
                     </div>
                     <div
-                        class="pf-c-card pf-l-grid__item pf-m-12-col pf-m-3-col-on-xl pf-m-3-col-on-2xl"
+                        class="pf-v5-c-card pf-v5-l-grid__item pf-m-12-col pf-m-3-col-on-xl pf-m-3-col-on-2xl"
                     >
-                        <div class="pf-c-card__title">${msg("Notes")}</div>
-                        <div class="pf-c-card__body">
+                        <div class="pf-v5-c-card__title">${msg("Notes")}</div>
+                        <div class="pf-v5-c-card__body">
                             ${Object.hasOwn(this.user?.attributes || {}, "notes")
                                 ? html`${this.user.attributes?.notes}`
                                 : html`
@@ -311,10 +311,10 @@ export class UserViewPage extends AKElement {
                         </div>
                     </div>
                     <div
-                        class="pf-c-card pf-l-grid__item pf-m-12-col pf-m-9-col-on-xl pf-m-9-col-on-2xl"
+                        class="pf-v5-c-card pf-v5-l-grid__item pf-m-12-col pf-m-9-col-on-xl pf-m-9-col-on-2xl"
                     >
-                        <div class="pf-c-card__title">${msg("Changelog")}</div>
-                        <div class="pf-c-card__body">
+                        <div class="pf-v5-c-card__title">${msg("Changelog")}</div>
+                        <div class="pf-v5-c-card__body">
                             <ak-object-changelog
                                 targetModelPk=${this.user.pk}
                                 targetModelApp="authentik_core"
@@ -328,10 +328,10 @@ export class UserViewPage extends AKElement {
             <section
                 slot="page-sessions"
                 data-tab-title="${msg("Sessions")}"
-                class="pf-c-page__main-section pf-m-no-padding-mobile"
+                class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
             >
-                <div class="pf-c-card">
-                    <div class="pf-c-card__body">
+                <div class="pf-v5-c-card">
+                    <div class="pf-v5-c-card__body">
                         <ak-user-session-list targetUser=${this.user.username}>
                         </ak-user-session-list>
                     </div>
@@ -340,10 +340,10 @@ export class UserViewPage extends AKElement {
             <section
                 slot="page-groups"
                 data-tab-title="${msg("Groups")}"
-                class="pf-c-page__main-section pf-m-no-padding-mobile"
+                class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
             >
-                <div class="pf-c-card">
-                    <div class="pf-c-card__body">
+                <div class="pf-v5-c-card">
+                    <div class="pf-v5-c-card__body">
                         <ak-group-related-list .targetUser=${this.user}> </ak-group-related-list>
                     </div>
                 </div>
@@ -351,10 +351,10 @@ export class UserViewPage extends AKElement {
             <section
                 slot="page-events"
                 data-tab-title="${msg("User events")}"
-                class="pf-c-page__main-section pf-m-no-padding-mobile"
+                class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
             >
-                <div class="pf-c-card">
-                    <div class="pf-c-card__body">
+                <div class="pf-v5-c-card">
+                    <div class="pf-v5-c-card__body">
                         <ak-events-user targetUser=${this.user.username}> </ak-events-user>
                     </div>
                 </div>
@@ -362,10 +362,10 @@ export class UserViewPage extends AKElement {
             <section
                 slot="page-consent"
                 data-tab-title="${msg("Explicit Consent")}"
-                class="pf-c-page__main-section pf-m-no-padding-mobile"
+                class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
             >
-                <div class="pf-c-card">
-                    <div class="pf-c-card__body">
+                <div class="pf-v5-c-card">
+                    <div class="pf-v5-c-card__body">
                         <ak-user-consent-list userId=${this.user.pk}> </ak-user-consent-list>
                     </div>
                 </div>
@@ -373,10 +373,10 @@ export class UserViewPage extends AKElement {
             <section
                 slot="page-oauth-refresh"
                 data-tab-title="${msg("OAuth Refresh Tokens")}"
-                class="pf-c-page__main-section pf-m-no-padding-mobile"
+                class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
             >
-                <div class="pf-c-card">
-                    <div class="pf-c-card__body">
+                <div class="pf-v5-c-card">
+                    <div class="pf-v5-c-card__body">
                         <ak-user-oauth-refresh-list userId=${this.user.pk}>
                         </ak-user-oauth-refresh-list>
                     </div>
@@ -385,10 +385,10 @@ export class UserViewPage extends AKElement {
             <section
                 slot="page-mfa-authenticators"
                 data-tab-title="${msg("MFA Authenticators")}"
-                class="pf-c-page__main-section pf-m-no-padding-mobile"
+                class="pf-v5-c-page__main-section pf-m-no-padding-mobile"
             >
-                <div class="pf-c-card">
-                    <div class="pf-c-card__body">
+                <div class="pf-v5-c-card">
+                    <div class="pf-v5-c-card__body">
                         <ak-user-device-list userId=${this.user.pk}> </ak-user-device-list>
                     </div>
                 </div>

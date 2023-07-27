@@ -48,7 +48,7 @@ export class AuthenticatorStaticStageForm extends ModelForm<AuthenticatorStaticS
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "Stage used to configure a static authenticator (i.e. static tokens). This stage should be used for configuration flows.",
@@ -58,7 +58,7 @@ export class AuthenticatorStaticStageForm extends ModelForm<AuthenticatorStaticS
                 <input
                     type="text"
                     value="${first(this.instance?.name, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -70,9 +70,9 @@ export class AuthenticatorStaticStageForm extends ModelForm<AuthenticatorStaticS
                 <input
                     type="text"
                     value="${first(this.instance?.friendlyName, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Display name of this authenticator, used by users when they enroll an authenticator.",
                     )}
@@ -80,7 +80,7 @@ export class AuthenticatorStaticStageForm extends ModelForm<AuthenticatorStaticS
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Token count")}
                         ?required=${true}
@@ -89,7 +89,7 @@ export class AuthenticatorStaticStageForm extends ModelForm<AuthenticatorStaticS
                         <input
                             type="text"
                             value="${first(this.instance?.tokenCount, 6)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
                     </ak-form-element-horizontal>
@@ -127,7 +127,7 @@ export class AuthenticatorStaticStageForm extends ModelForm<AuthenticatorStaticS
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage.",
                             )}

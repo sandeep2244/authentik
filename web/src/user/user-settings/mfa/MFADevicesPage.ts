@@ -64,12 +64,12 @@ export class MFADevicesPage extends Table<Device> {
             }
             return stage.configureUrl;
         });
-        return html`<ak-dropdown class="pf-c-dropdown">
-                <button class="pf-m-primary pf-c-dropdown__toggle" type="button">
-                    <span class="pf-c-dropdown__toggle-text">${msg("Enroll")}</span>
-                    <i class="fas fa-caret-down pf-c-dropdown__toggle-icon" aria-hidden="true"></i>
+        return html`<ak-dropdown class="pf-v5-c-dropdown">
+                <button class="pf-m-primary pf-v5-c-dropdown__toggle" type="button">
+                    <span class="pf-v5-c-dropdown__toggle-text">${msg("Enroll")}</span>
+                    <i class="fas fa-caret-down pf-v5-c-dropdown__toggle-icon" aria-hidden="true"></i>
                 </button>
-                <ul class="pf-c-dropdown__menu" hidden>
+                <ul class="pf-v5-c-dropdown__menu" hidden>
                     ${settings.map((stage) => {
                         return html`<li>
                             <a
@@ -78,7 +78,7 @@ export class MFADevicesPage extends Table<Device> {
                                         page: "page-mfa",
                                     })}`,
                                 )}"
-                                class="pf-c-dropdown__menu-item"
+                                class="pf-v5-c-dropdown__menu-item"
                             >
                                 ${stageToAuthenticatorName(stage)}
                             </a>
@@ -125,7 +125,7 @@ export class MFADevicesPage extends Table<Device> {
                 return this.deleteWrapper(item);
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -141,7 +141,7 @@ export class MFADevicesPage extends Table<Device> {
                     <span slot="header">${msg("Update Device")}</span>
                     <ak-user-mfa-form slot="form" deviceType=${item.type} .instancePk=${item.pk}>
                     </ak-user-mfa-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-edit"></i>
                     </button>
                 </ak-forms-modal>

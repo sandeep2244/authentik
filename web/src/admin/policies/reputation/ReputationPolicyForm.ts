@@ -41,7 +41,7 @@ export class ReputationPolicyForm extends ModelForm<ReputationPolicy, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg("Allows/denys requests based on the users and/or the IPs reputation.")}
             </div>
@@ -61,25 +61,25 @@ doesn't pass when either or both of the selected options are equal or above the 
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name || "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-element-horizontal name="executionLogging">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.executionLogging, false)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Execution logging")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Execution logging")}</span>
                 </label>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "When this option is enabled, all executions of this policy will be logged. By default, only execution errors are logged.",
                     )}
@@ -87,35 +87,35 @@ doesn't pass when either or both of the selected options are equal or above the 
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Policy-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal name="checkIp">
-                        <label class="pf-c-switch">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${first(this.instance?.checkIp, false)}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label">${msg("Check IP")}</span>
+                            <span class="pf-v5-c-switch__label">${msg("Check IP")}</span>
                         </label>
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal name="checkUsername">
-                        <label class="pf-c-switch">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${first(this.instance?.checkUsername, false)}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label">${msg("Check Username")}</span>
+                            <span class="pf-v5-c-switch__label">${msg("Check Username")}</span>
                         </label>
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal
@@ -126,7 +126,7 @@ doesn't pass when either or both of the selected options are equal or above the 
                         <input
                             type="number"
                             value="${ifDefined(this.instance?.threshold || -5)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
                     </ak-form-element-horizontal>

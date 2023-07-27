@@ -18,7 +18,7 @@ const buttonStyles = [
     PFSpinner,
     css`
         #spinner-button {
-            transition: all var(--pf-c-button--m-progress--TransitionDuration) ease 0s;
+            transition: all var(--pf-v5-c-button--m-progress--TransitionDuration) ease 0s;
         }
         #spinner-button.working {
             pointer-events: none;
@@ -101,7 +101,7 @@ export abstract class BaseTaskButton extends CustomEmitterElement(AKElement) {
         this.actionTask.run();
     }
 
-    private spinner = html`<span class="pf-c-button__progress">
+    private spinner = html`<span class="pf-v5-c-button__progress">
         <ak-spinner size=${PFSize.Medium}></ak-spinner>
     </span>`;
 
@@ -118,7 +118,7 @@ export abstract class BaseTaskButton extends CustomEmitterElement(AKElement) {
     render() {
         return html`<button
             id="spinner-button"
-            class="pf-c-button pf-m-progress ${this.buttonClasses}"
+            class="pf-v5-c-button pf-m-progress ${this.buttonClasses}"
             @click=${this.onClick}
         >
             ${this.actionTask.render({ pending: () => this.spinner })}

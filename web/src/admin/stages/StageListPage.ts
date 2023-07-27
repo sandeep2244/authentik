@@ -90,7 +90,7 @@ export class StageListPage extends TablePage<Stage> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -107,7 +107,7 @@ export class StageListPage extends TablePage<Stage> {
                         .instancePk=${stage.pk}
                     >
                     </ak-stage-authenticator-duo-device-import-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-file-import"></i>
                     </button>
                 </ak-forms-modal>`;
@@ -120,7 +120,7 @@ export class StageListPage extends TablePage<Stage> {
         return [
             html`<div>${item.name}</div>
                 <small>${item.verboseName}</small>`,
-            html`<ul class="pf-c-list">
+            html`<ul class="pf-v5-c-list">
                 ${item.flowSet?.map((flow) => {
                     return html`<li>
                         <a href="#/flow/flows/${flow.slug}">
@@ -140,7 +140,7 @@ export class StageListPage extends TablePage<Stage> {
                         type=${ifDefined(item.component)}
                     >
                     </ak-proxy-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-edit"></i>
                     </button>
                 </ak-forms-modal>

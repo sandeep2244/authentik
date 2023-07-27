@@ -41,7 +41,7 @@ export class TypeOAuthCodeApplicationWizardPage extends WizardFormPage {
     };
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal
                 label=${msg("Authorization flow")}
                 ?required=${true}
@@ -70,7 +70,7 @@ export class TypeOAuthCodeApplicationWizardPage extends WizardFormPage {
                     }}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Flow used when users access this application.")}
                 </p>
             </ak-form-element-horizontal>

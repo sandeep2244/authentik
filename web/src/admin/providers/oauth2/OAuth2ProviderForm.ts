@@ -82,12 +82,12 @@ export class OAuth2ProviderFormPage extends ModelForm<OAuth2Provider, number> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal label=${msg("Name")} ?required=${true} name="name">
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -121,7 +121,7 @@ export class OAuth2ProviderFormPage extends ModelForm<OAuth2Provider, number> {
                     }}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Flow used when a user access this provider and is not authenticated.")}
                 </p>
             </ak-form-element-horizontal>
@@ -156,14 +156,14 @@ export class OAuth2ProviderFormPage extends ModelForm<OAuth2Provider, number> {
                     }}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Flow used when authorizing this provider.")}
                 </p>
             </ak-form-element-horizontal>
 
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Protocol settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Client type")}
                         ?required=${true}
@@ -209,7 +209,7 @@ export class OAuth2ProviderFormPage extends ModelForm<OAuth2Provider, number> {
                                 this.instance?.clientId,
                                 randomString(40, ascii_letters + digits),
                             )}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
                     </ak-form-element-horizontal>
@@ -224,27 +224,27 @@ export class OAuth2ProviderFormPage extends ModelForm<OAuth2Provider, number> {
                                 this.instance?.clientSecret,
                                 randomString(128, ascii_letters + digits),
                             )}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                         />
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal
                         label=${msg("Redirect URIs/Origins (RegEx)")}
                         name="redirectUris"
                     >
-                        <textarea class="pf-c-form-control">
+                        <textarea class="pf-v5-c-form-control">
 ${this.instance?.redirectUris}</textarea
                         >
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Valid redirect URLs after a successful authorization flow. Also specify any origins here for Implicit flows.",
                             )}
                         </p>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "If no explicit redirect URIs are specified, the first successfully used redirect URI will be saved.",
                             )}
                         </p>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 'To allow any redirect URI, set this value to ".*". Be aware of the possible security implications this can have.',
                             )}
@@ -287,14 +287,14 @@ ${this.instance?.redirectUris}</textarea
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">${msg("Key used to sign the tokens.")}</p>
+                        <p class="pf-v5-c-form__helper-text">${msg("Key used to sign the tokens.")}</p>
                     </ak-form-element-horizontal>
                 </div>
             </ak-form-group>
 
             <ak-form-group>
                 <span slot="header"> ${msg("Advanced protocol settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Access code validity")}
                         ?required=${true}
@@ -303,10 +303,10 @@ ${this.instance?.redirectUris}</textarea
                         <input
                             type="text"
                             value="${first(this.instance?.accessCodeValidity, "minutes=1")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Configure how long access codes are valid for.")}
                         </p>
                         <ak-utils-time-delta-help></ak-utils-time-delta-help>
@@ -319,10 +319,10 @@ ${this.instance?.redirectUris}</textarea
                         <input
                             type="text"
                             value="${first(this.instance?.accessTokenValidity, "minutes=5")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Configure how long access tokens are valid for.")}
                         </p>
                         <ak-utils-time-delta-help></ak-utils-time-delta-help>
@@ -335,16 +335,16 @@ ${this.instance?.redirectUris}</textarea
                         <input
                             type="text"
                             value="${first(this.instance?.refreshTokenValidity, "days=30")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Configure how long refresh tokens are valid for.")}
                         </p>
                         <ak-utils-time-delta-help></ak-utils-time-delta-help>
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal label=${msg("Scopes")} name="propertyMappings">
-                        <select class="pf-c-form-control" multiple>
+                        <select class="pf-v5-c-form-control" multiple>
                             ${this.propertyMappings?.results.map((scope) => {
                                 let selected = false;
                                 if (!this.instance?.propertyMappings) {
@@ -367,12 +367,12 @@ ${this.instance?.redirectUris}</textarea
                                 </option>`;
                             })}
                         </select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Select which scopes can be used by the client. The client still has to specify the scope to access the data.",
                             )}
                         </p>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Hold control/command to select multiple items.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -418,29 +418,29 @@ ${this.instance?.redirectUris}</textarea
                             .value=${this.instance?.subMode}
                         >
                         </ak-radio>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Configure what data should be used as unique User Identifier. For most cases, the default should be fine.",
                             )}
                         </p>
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal name="includeClaimsInIdToken">
-                        <label class="pf-c-switch">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${first(this.instance?.includeClaimsInIdToken, true)}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label"
+                            <span class="pf-v5-c-switch__label"
                                 >${msg("Include claims in id_token")}</span
                             >
                         </label>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Include User claims from scopes in the id_token, for applications that don't access the userinfo endpoint.",
                             )}
@@ -468,7 +468,7 @@ ${this.instance?.redirectUris}</textarea
                             .value=${this.instance?.issuerMode}
                         >
                         </ak-radio>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Configure how the issuer field of the ID Token should be filled.",
                             )}
@@ -479,12 +479,12 @@ ${this.instance?.redirectUris}</textarea
 
             <ak-form-group>
                 <span slot="header">${msg("Machine-to-Machine authentication settings")}</span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Trusted OIDC Sources")}
                         name="jwksSources"
                     >
-                        <select class="pf-c-form-control" multiple>
+                        <select class="pf-v5-c-form-control" multiple>
                             ${this.oauthSources?.results.map((source) => {
                                 const selected = (this.instance?.jwksSources || []).some((su) => {
                                     return su == source.pk;
@@ -494,12 +494,12 @@ ${this.instance?.redirectUris}</textarea
                                 </option>`;
                             })}
                         </select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "JWTs signed by certificates configured in the selected sources can be used to authenticate to this provider.",
                             )}
                         </p>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Hold control/command to select multiple items.")}
                         </p>
                     </ak-form-element-horizontal>

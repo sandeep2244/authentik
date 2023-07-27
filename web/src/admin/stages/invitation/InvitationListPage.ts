@@ -102,7 +102,7 @@ export class InvitationListPage extends TablePage<Invitation> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -126,7 +126,7 @@ export class InvitationListPage extends TablePage<Invitation> {
                 <span slot="submit"> ${msg("Update")} </span>
                 <span slot="header"> ${msg("Update Invitation")} </span>
                 <ak-invitation-form slot="form" .instancePk=${item.pk}> </ak-invitation-form>
-                <button slot="trigger" class="pf-c-button pf-m-plain">
+                <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                     <i class="fas fa-edit"></i>
                 </button>
             </ak-forms-modal>`,
@@ -135,7 +135,7 @@ export class InvitationListPage extends TablePage<Invitation> {
 
     renderExpanded(item: Invitation): TemplateResult {
         return html` <td role="cell" colspan="3">
-                <div class="pf-c-table__expandable-row-content">
+                <div class="pf-v5-c-table__expandable-row-content">
                     <ak-stage-invitation-list-link
                         .invitation=${item}
                     ></ak-stage-invitation-list-link>
@@ -152,7 +152,7 @@ export class InvitationListPage extends TablePage<Invitation> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Invitation")} </span>
                 <ak-invitation-form slot="form"> </ak-invitation-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Create")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Create")}</button>
             </ak-forms-modal>
         `;
     }
@@ -167,14 +167,14 @@ export class InvitationListPage extends TablePage<Invitation> {
             ${this.invitationStageExists
                 ? html``
                 : html`
-                      <div class="pf-c-banner pf-m-warning">
+                      <div class="pf-v5-c-banner pf-m-warning">
                           ${msg(
                               "Warning: No invitation stage is bound to any flow. Invitations will not work as expected.",
                           )}
                       </div>
                   `}
-            <section class="pf-c-page__main-section pf-m-no-padding-mobile">
-                <div class="pf-c-card">${this.renderTable()}</div>
+            <section class="pf-v5-c-page__main-section pf-m-no-padding-mobile">
+                <div class="pf-v5-c-card">${this.renderTable()}</div>
             </section>`;
     }
 }

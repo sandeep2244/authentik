@@ -59,7 +59,7 @@ export class UserTokenList extends Table<Token> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Token")} </span>
                 <ak-user-token-form intent=${IntentEnum.Api} slot="form"> </ak-user-token-form>
-                <button slot="trigger" class="pf-c-button pf-m-secondary">
+                <button slot="trigger" class="pf-v5-c-button pf-m-secondary">
                     ${msg("Create Token")}
                 </button>
             </ak-forms-modal>
@@ -68,7 +68,7 @@ export class UserTokenList extends Table<Token> {
                 <span slot="header"> ${msg("Create App password")} </span>
                 <ak-user-token-form intent=${IntentEnum.AppPassword} slot="form">
                 </ak-user-token-form>
-                <button slot="trigger" class="pf-c-button pf-m-secondary">
+                <button slot="trigger" class="pf-v5-c-button pf-m-secondary">
                     ${msg("Create App password")}
                 </button>
             </ak-forms-modal>
@@ -78,46 +78,46 @@ export class UserTokenList extends Table<Token> {
 
     renderExpanded(item: Token): TemplateResult {
         return html` <td role="cell" colspan="3">
-                <div class="pf-c-table__expandable-row-content">
-                    <dl class="pf-c-description-list pf-m-horizontal">
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text">${msg("User")}</span>
+                <div class="pf-v5-c-table__expandable-row-content">
+                    <dl class="pf-v5-c-description-list pf-m-horizontal">
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text">${msg("User")}</span>
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     ${item.userObj?.username}
                                 </div>
                             </dd>
                         </div>
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text">${msg("Expiring")}</span>
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text">${msg("Expiring")}</span>
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     <ak-label color=${item.expiring ? PFColor.Green : PFColor.Red}>
                                         ${item.expiring ? msg("Yes") : msg("No")}
                                     </ak-label>
                                 </div>
                             </dd>
                         </div>
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text">${msg("Expiring")}</span>
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text">${msg("Expiring")}</span>
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     ${item.expiring ? item.expires?.toLocaleString() : msg("-")}
                                 </div>
                             </dd>
                         </div>
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text">${msg("Intent")}</span>
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text">${msg("Intent")}</span>
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     ${IntentToLabel(item.intent || IntentEnum.Api)}
                                 </div>
                             </dd>
@@ -139,7 +139,7 @@ export class UserTokenList extends Table<Token> {
                     identifier: item.identifier,
                 })}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -154,12 +154,12 @@ export class UserTokenList extends Table<Token> {
                     <span slot="header"> ${msg("Update Token")} </span>
                     <ak-user-token-form slot="form" .instancePk=${item.identifier}>
                     </ak-user-token-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-edit"></i>
                     </button>
                 </ak-forms-modal>
                 <ak-token-copy-button
-                    class="pf-c-button pf-m-plain"
+                    class="pf-v5-c-button pf-m-plain"
                     identifier="${item.identifier}"
                 >
                     <i class="fas fa-copy"></i>

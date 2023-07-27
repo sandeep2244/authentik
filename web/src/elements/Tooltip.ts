@@ -16,13 +16,13 @@ export class Tooltip extends AKElement {
             PFBase,
             PFTooltip,
             css`
-                .pf-c-tooltip__content {
+                .pf-v5-c-tooltip__content {
                     text-align: inherit;
                 }
                 .outer {
                     position: relative;
                 }
-                .pf-c-tooltip {
+                .pf-v5-c-tooltip {
                     position: absolute;
                     z-index: 999;
                 }
@@ -42,10 +42,10 @@ export class Tooltip extends AKElement {
             ></slot>
             ${this.open
                 ? html`<div class="outer">
-                      <div class="pf-c-tooltip" role="tooltip">
-                          <div class="pf-c-tooltip__arrow"></div>
+                      <div class="pf-v5-c-tooltip" role="tooltip">
+                          <div class="pf-v5-c-tooltip__arrow"></div>
 
-                          <div class="pf-c-tooltip__content">
+                          <div class="pf-v5-c-tooltip__content">
                               <slot name="tooltip"></slot>
                           </div>
                       </div>

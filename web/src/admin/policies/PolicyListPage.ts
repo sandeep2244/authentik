@@ -85,7 +85,7 @@ export class PolicyListPage extends TablePage<Policy> {
                         type=${ifDefined(item.component)}
                     >
                     </ak-proxy-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-pencil-alt" aria-hidden="true"></i>
                     </button>
                 </ak-forms-modal>
@@ -93,7 +93,7 @@ export class PolicyListPage extends TablePage<Policy> {
                     <span slot="submit"> ${msg("Test")} </span>
                     <span slot="header"> ${msg("Test Policy")} </span>
                     <ak-policy-test-form slot="form" .policy=${item}> </ak-policy-test-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-vial" aria-hidden="true"></i>
                     </button>
                 </ak-forms-modal>`,
@@ -116,7 +116,7 @@ export class PolicyListPage extends TablePage<Policy> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -142,7 +142,7 @@ export class PolicyListPage extends TablePage<Policy> {
                         "Are you sure you want to clear the policy cache? This will cause all policies to be re-evaluated on their next usage.",
                     )}
                 </p>
-                <button slot="trigger" class="pf-c-button pf-m-secondary" type="button">
+                <button slot="trigger" class="pf-v5-c-button pf-m-secondary" type="button">
                     ${msg("Clear cache")}
                 </button>
                 <div slot="modal"></div>

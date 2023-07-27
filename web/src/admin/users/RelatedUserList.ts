@@ -61,7 +61,7 @@ export class RelatedUserAdd extends Form<{ users: number[] }> {
     renderInlineForm(): TemplateResult {
         return html`${this.group?.isSuperuser ? html`` : html``}
             <ak-form-element-horizontal label=${msg("Users to add")} name="users">
-                <div class="pf-c-input-group">
+                <div class="pf-v5-c-input-group">
                     <ak-group-member-select-table
                         .confirm=${(items: User[]) => {
                             this.usersToAdd = items;
@@ -69,11 +69,11 @@ export class RelatedUserAdd extends Form<{ users: number[] }> {
                             return Promise.resolve();
                         }}
                     >
-                        <button slot="trigger" class="pf-c-button pf-m-control" type="button">
+                        <button slot="trigger" class="pf-v5-c-button pf-m-control" type="button">
                             <i class="fas fa-plus" aria-hidden="true"></i>
                         </button>
                     </ak-group-member-select-table>
-                    <div class="pf-c-form-control">
+                    <div class="pf-v5-c-form-control">
                         <ak-chip-group>
                             ${this.usersToAdd.map((user) => {
                                 return html`<ak-chip
@@ -166,7 +166,7 @@ export class RelatedUserList extends Table<User> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Remove")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -186,7 +186,7 @@ export class RelatedUserList extends Table<User> {
                     <span slot="submit"> ${msg("Update")} </span>
                     <span slot="header"> ${msg("Update User")} </span>
                     <ak-user-form slot="form" .instancePk=${item.pk}> </ak-user-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-edit"></i>
                     </button>
                 </ak-forms-modal>
@@ -213,31 +213,31 @@ export class RelatedUserList extends Table<User> {
 
     renderExpanded(item: User): TemplateResult {
         return html`<td role="cell" colspan="3">
-                <div class="pf-c-table__expandable-row-content">
-                    <dl class="pf-c-description-list pf-m-horizontal">
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text"
+                <div class="pf-v5-c-table__expandable-row-content">
+                    <dl class="pf-v5-c-description-list pf-m-horizontal">
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text"
                                     >${msg("User status")}</span
                                 >
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     ${item.isActive ? msg("Active") : msg("Inactive")}
                                 </div>
-                                <div class="pf-c-description-list__text">
+                                <div class="pf-v5-c-description-list__text">
                                     ${item.isSuperuser ? msg("Superuser") : msg("Regular user")}
                                 </div>
                             </dd>
                         </div>
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text"
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text"
                                     >${msg("Change status")}</span
                                 >
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     <ak-user-active-form
                                         .obj=${item}
                                         objectLabel=${msg("User")}
@@ -252,19 +252,19 @@ export class RelatedUserList extends Table<User> {
                                             });
                                         }}
                                     >
-                                        <button slot="trigger" class="pf-c-button pf-m-warning">
+                                        <button slot="trigger" class="pf-v5-c-button pf-m-warning">
                                             ${item.isActive ? msg("Deactivate") : msg("Activate")}
                                         </button>
                                     </ak-user-active-form>
                                 </div>
                             </dd>
                         </div>
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text">${msg("Recovery")}</span>
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text">${msg("Recovery")}</span>
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     <ak-forms-modal>
                                         <span slot="submit">${msg("Update password")}</span>
                                         <span slot="header">${msg("Update password")}</span>
@@ -272,7 +272,7 @@ export class RelatedUserList extends Table<User> {
                                             slot="form"
                                             .instancePk=${item.pk}
                                         ></ak-user-password-form>
-                                        <button slot="trigger" class="pf-c-button pf-m-secondary">
+                                        <button slot="trigger" class="pf-v5-c-button pf-m-secondary">
                                             ${msg("Set password")}
                                         </button>
                                     </ak-forms-modal>
@@ -325,7 +325,7 @@ export class RelatedUserList extends Table<User> {
                                                         </ak-user-reset-email-form>
                                                         <button
                                                             slot="trigger"
-                                                            class="pf-c-button pf-m-secondary"
+                                                            class="pf-v5-c-button pf-m-secondary"
                                                         >
                                                             ${msg("Email recovery link")}
                                                         </button>
@@ -359,7 +359,7 @@ export class RelatedUserList extends Table<User> {
                       <span slot="header"> ${msg("Add User")} </span>
                       ${this.targetGroup.isSuperuser
                           ? html`
-                                <div class="pf-c-banner pf-m-warning" slot="above-form">
+                                <div class="pf-v5-c-banner pf-m-warning" slot="above-form">
                                     ${msg(
                                         "Warning: This group is configured with superuser access. Added users will have superuser access.",
                                     )}
@@ -368,23 +368,23 @@ export class RelatedUserList extends Table<User> {
                           : html``}
                       <ak-user-related-add .group=${this.targetGroup} slot="form">
                       </ak-user-related-add>
-                      <button slot="trigger" class="pf-c-button pf-m-primary">
+                      <button slot="trigger" class="pf-v5-c-button pf-m-primary">
                           ${msg("Add existing user")}
                       </button>
                   </ak-forms-modal>`
                 : html``}
-            <ak-dropdown class="pf-c-dropdown">
-                <button class="pf-m-secondary pf-c-dropdown__toggle" type="button">
-                    <span class="pf-c-dropdown__toggle-text">${msg("Create user")}</span>
-                    <i class="fas fa-caret-down pf-c-dropdown__toggle-icon" aria-hidden="true"></i>
+            <ak-dropdown class="pf-v5-c-dropdown">
+                <button class="pf-m-secondary pf-v5-c-dropdown__toggle" type="button">
+                    <span class="pf-v5-c-dropdown__toggle-text">${msg("Create user")}</span>
+                    <i class="fas fa-caret-down pf-v5-c-dropdown__toggle-icon" aria-hidden="true"></i>
                 </button>
-                <ul class="pf-c-dropdown__menu" hidden>
+                <ul class="pf-v5-c-dropdown__menu" hidden>
                     <li>
                         <ak-forms-modal>
                             <span slot="submit"> ${msg("Create")} </span>
                             <span slot="header"> ${msg("Create User")} </span>
                             <ak-user-form slot="form"> </ak-user-form>
-                            <a slot="trigger" class="pf-c-dropdown__menu-item">
+                            <a slot="trigger" class="pf-v5-c-dropdown__menu-item">
                                 ${msg("Create user")}
                             </a>
                         </ak-forms-modal>
@@ -397,7 +397,7 @@ export class RelatedUserList extends Table<User> {
                             <span slot="submit"> ${msg("Create")} </span>
                             <span slot="header"> ${msg("Create Service account")} </span>
                             <ak-user-service-account slot="form"> </ak-user-service-account>
-                            <a slot="trigger" class="pf-c-dropdown__menu-item">
+                            <a slot="trigger" class="pf-v5-c-dropdown__menu-item">
                                 ${msg("Create Service account")}
                             </a>
                         </ak-forms-modal>
@@ -410,12 +410,12 @@ export class RelatedUserList extends Table<User> {
 
     renderToolbarAfter(): TemplateResult {
         return html`&nbsp;
-            <div class="pf-c-toolbar__group pf-m-filter-group">
-                <div class="pf-c-toolbar__item pf-m-search-filter">
-                    <div class="pf-c-input-group">
-                        <label class="pf-c-switch">
+            <div class="pf-v5-c-toolbar__group pf-m-filter-group">
+                <div class="pf-v5-c-toolbar__item pf-m-search-filter">
+                    <div class="pf-v5-c-input-group">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${this.hideServiceAccounts}
                                 @change=${() => {
@@ -427,12 +427,12 @@ export class RelatedUserList extends Table<User> {
                                     });
                                 }}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label">${msg("Hide service-accounts")}</span>
+                            <span class="pf-v5-c-switch__label">${msg("Hide service-accounts")}</span>
                         </label>
                     </div>
                 </div>

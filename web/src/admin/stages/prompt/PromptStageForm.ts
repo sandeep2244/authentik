@@ -60,7 +60,7 @@ export class PromptStageForm extends ModelForm<PromptStage, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "Show arbitrary input fields to the user, for example during enrollment. Data is saved in the flow context under the 'prompt_data' variable.",
@@ -70,19 +70,19 @@ export class PromptStageForm extends ModelForm<PromptStage, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name || "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Fields")}
                         ?required=${true}
                         name="fields"
                     >
-                        <select name="users" class="pf-c-form-control" multiple>
+                        <select name="users" class="pf-v5-c-form-control" multiple>
                             ${this.prompts?.results.map((prompt) => {
                                 const selected = Array.from(this.instance?.fields || []).some(
                                     (su) => {
@@ -99,7 +99,7 @@ export class PromptStageForm extends ModelForm<PromptStage, string> {
                                 </option>`;
                             })}
                         </select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Hold control/command to select multiple items.")}
                         </p>
                         ${this.instance
@@ -110,7 +110,7 @@ export class PromptStageForm extends ModelForm<PromptStage, string> {
                                   <button
                                       type="button"
                                       slot="trigger"
-                                      class="pf-c-button pf-m-primary"
+                                      class="pf-v5-c-button pf-m-primary"
                                   >
                                       ${msg("Create")}
                                   </button>
@@ -121,7 +121,7 @@ export class PromptStageForm extends ModelForm<PromptStage, string> {
                         label=${msg("Validation Policies")}
                         name="validationPolicies"
                     >
-                        <select name="users" class="pf-c-form-control" multiple>
+                        <select name="users" class="pf-v5-c-form-control" multiple>
                             ${this.policies?.results.map((policy) => {
                                 const selected = Array.from(
                                     this.instance?.validationPolicies || [],
@@ -136,12 +136,12 @@ export class PromptStageForm extends ModelForm<PromptStage, string> {
                                 </option>`;
                             })}
                         </select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Selected policies are executed when the stage is submitted to validate the data.",
                             )}
                         </p>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Hold control/command to select multiple items.")}
                         </p>
                     </ak-form-element-horizontal>

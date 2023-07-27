@@ -74,7 +74,7 @@ export class PolicyBindingForm extends ModelForm<PolicyBinding, string> {
             PFToggleGroup,
             PFContent,
             css`
-                .pf-c-toggle-group {
+                .pf-v5-c-toggle-group {
                     justify-content: center;
                 }
             `,
@@ -112,9 +112,9 @@ export class PolicyBindingForm extends ModelForm<PolicyBinding, string> {
     }
 
     renderModeSelector(): TemplateResult {
-        return html` <div class="pf-c-toggle-group__item">
+        return html` <div class="pf-v5-c-toggle-group__item">
                 <button
-                    class="pf-c-toggle-group__button ${this.policyGroupUser === target.policy
+                    class="pf-v5-c-toggle-group__button ${this.policyGroupUser === target.policy
                         ? "pf-m-selected"
                         : ""}"
                     type="button"
@@ -122,13 +122,13 @@ export class PolicyBindingForm extends ModelForm<PolicyBinding, string> {
                         this.policyGroupUser = target.policy;
                     }}
                 >
-                    <span class="pf-c-toggle-group__text">${msg("Policy")}</span>
+                    <span class="pf-v5-c-toggle-group__text">${msg("Policy")}</span>
                 </button>
             </div>
-            <div class="pf-c-divider pf-m-vertical" role="separator"></div>
-            <div class="pf-c-toggle-group__item">
+            <div class="pf-v5-c-divider pf-m-vertical" role="separator"></div>
+            <div class="pf-v5-c-toggle-group__item">
                 <button
-                    class="pf-c-toggle-group__button ${this.policyGroupUser === target.group
+                    class="pf-v5-c-toggle-group__button ${this.policyGroupUser === target.group
                         ? "pf-m-selected"
                         : ""}"
                     type="button"
@@ -136,13 +136,13 @@ export class PolicyBindingForm extends ModelForm<PolicyBinding, string> {
                         this.policyGroupUser = target.group;
                     }}
                 >
-                    <span class="pf-c-toggle-group__text">${msg("Group")}</span>
+                    <span class="pf-v5-c-toggle-group__text">${msg("Group")}</span>
                 </button>
             </div>
-            <div class="pf-c-divider pf-m-vertical" role="separator"></div>
-            <div class="pf-c-toggle-group__item">
+            <div class="pf-v5-c-divider pf-m-vertical" role="separator"></div>
+            <div class="pf-v5-c-toggle-group__item">
                 <button
-                    class="pf-c-toggle-group__button ${this.policyGroupUser === target.user
+                    class="pf-v5-c-toggle-group__button ${this.policyGroupUser === target.user
                         ? "pf-m-selected"
                         : ""}"
                     type="button"
@@ -150,18 +150,18 @@ export class PolicyBindingForm extends ModelForm<PolicyBinding, string> {
                         this.policyGroupUser = target.user;
                     }}
                 >
-                    <span class="pf-c-toggle-group__text">${msg("User")}</span>
+                    <span class="pf-v5-c-toggle-group__text">${msg("User")}</span>
                 </button>
             </div>`;
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
-            <div class="pf-c-card pf-m-selectable pf-m-selected">
-                <div class="pf-c-card__body">
-                    <div class="pf-c-toggle-group">${this.renderModeSelector()}</div>
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
+            <div class="pf-v5-c-card pf-m-selectable pf-m-selected">
+                <div class="pf-v5-c-card__body">
+                    <div class="pf-v5-c-toggle-group">${this.renderModeSelector()}</div>
                 </div>
-                <div class="pf-c-card__footer">
+                <div class="pf-v5-c-card__footer">
                     <ak-form-element-horizontal
                         label=${msg("Policy")}
                         name="policy"
@@ -227,7 +227,7 @@ export class PolicyBindingForm extends ModelForm<PolicyBinding, string> {
                         >
                         </ak-search-select>
                         ${this.policyOnly
-                            ? html`<p class="pf-c-form__helper-text">
+                            ? html`<p class="pf-v5-c-form__helper-text">
                                   ${msg(
                                       "Group mappings can only be checked if a user is already logged in when trying to access this source.",
                                   )}
@@ -266,7 +266,7 @@ export class PolicyBindingForm extends ModelForm<PolicyBinding, string> {
                         >
                         </ak-search-select>
                         ${this.policyOnly
-                            ? html`<p class="pf-c-form__helper-text">
+                            ? html`<p class="pf-v5-c-form__helper-text">
                                   ${msg(
                                       "User mappings can only be checked if a user is already logged in when trying to access this source.",
                                   )}
@@ -276,35 +276,35 @@ export class PolicyBindingForm extends ModelForm<PolicyBinding, string> {
                 </div>
             </div>
             <ak-form-element-horizontal name="enabled">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.enabled, true)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Enabled")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Enabled")}</span>
                 </label>
             </ak-form-element-horizontal>
             <ak-form-element-horizontal name="negate">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.negate, false)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Negate result")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Negate result")}</span>
                 </label>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Negates the outcome of the binding. Messages are unaffected.")}
                 </p>
             </ak-form-element-horizontal>
@@ -312,7 +312,7 @@ export class PolicyBindingForm extends ModelForm<PolicyBinding, string> {
                 <input
                     type="number"
                     value="${first(this.instance?.order, this.defaultOrder)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -320,7 +320,7 @@ export class PolicyBindingForm extends ModelForm<PolicyBinding, string> {
                 <input
                     type="number"
                     value="${first(this.instance?.timeout, 30)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>

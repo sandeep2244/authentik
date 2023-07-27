@@ -51,12 +51,12 @@ export class RadiusProviderFormPage extends ModelForm<RadiusProvider, number> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal label=${msg("Name")} ?required=${true} name="name">
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -95,12 +95,12 @@ export class RadiusProviderFormPage extends ModelForm<RadiusProvider, number> {
                     }}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">${msg("Flow used for users to authenticate.")}</p>
+                <p class="pf-v5-c-form__helper-text">${msg("Flow used for users to authenticate.")}</p>
             </ak-form-element-horizontal>
 
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Protocol settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Shared secret")}
                         ?required=${true}
@@ -112,7 +112,7 @@ export class RadiusProviderFormPage extends ModelForm<RadiusProvider, number> {
                                 this.instance?.sharedSecret,
                                 randomString(128, ascii_letters + digits),
                             )}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
                     </ak-form-element-horizontal>
@@ -124,10 +124,10 @@ export class RadiusProviderFormPage extends ModelForm<RadiusProvider, number> {
                         <input
                             type="text"
                             value="${first(this.instance?.clientNetworks, "0.0.0.0/0, ::/0")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(`List of CIDRs (comma-seperated) that clients can connect from. A more specific
                             CIDR will match before a looser one. Clients connecting from a non-specified CIDR
                             will be dropped.`)}

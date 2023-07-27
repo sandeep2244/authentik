@@ -27,8 +27,8 @@ export class FlowErrorStage extends BaseStage<FlowErrorChallenge, FlowChallengeR
                 pre {
                     overflow-x: scroll;
                     max-width: calc(
-                        35rem - var(--pf-c-login__main-body--PaddingRight) -
-                            var(--pf-c-login__main-body--PaddingRight)
+                        35rem - var(--pf-v5-c-login__main-body--PaddingRight) -
+                            var(--pf-v5-c-login__main-body--PaddingRight)
                     );
                 }
             `,
@@ -40,31 +40,31 @@ export class FlowErrorStage extends BaseStage<FlowErrorChallenge, FlowChallengeR
             return html`<ak-empty-state ?loading="${true}" header=${msg("Loading")}>
             </ak-empty-state>`;
         }
-        return html`<header class="pf-c-login__main-header">
-                <h1 class="pf-c-title pf-m-3xl">${this.challenge.flowInfo?.title}</h1>
+        return html`<header class="pf-v5-c-login__main-header">
+                <h1 class="pf-v5-c-title pf-m-3xl">${this.challenge.flowInfo?.title}</h1>
             </header>
-            <div class="pf-c-login__main-body">
-                <form class="pf-c-form">
-                    <h3 class="pf-c-title pf-m-3xl">
+            <div class="pf-v5-c-login__main-body">
+                <form class="pf-v5-c-form">
+                    <h3 class="pf-v5-c-title pf-m-3xl">
                         ${this.challenge?.error
                             ? this.challenge.error
                             : msg("Something went wrong! Please try again later.")}
                     </h3>
                     ${this.challenge?.traceback
-                        ? html`<div class="pf-c-form__group">
+                        ? html`<div class="pf-v5-c-form__group">
                               <pre class="ak-exception">${this.challenge.traceback}</pre>
                           </div>`
                         : html``}
                     ${this.challenge?.requestId
-                        ? html`<div class="pf-c-form__group">
+                        ? html`<div class="pf-v5-c-form__group">
                               <p>${msg("Request ID")}</p>
                               <code>${this.challenge.requestId}</code>
                           </div>`
                         : html``}
                 </form>
             </div>
-            <footer class="pf-c-login__main-footer">
-                <ul class="pf-c-login__main-footer-links"></ul>
+            <footer class="pf-v5-c-login__main-footer">
+                <ul class="pf-v5-c-login__main-footer-links"></ul>
             </footer>`;
     }
 }

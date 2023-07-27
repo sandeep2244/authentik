@@ -43,7 +43,7 @@ export class ExpressionPolicyForm extends ModelForm<ExpressionPolicy, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "Executes the python snippet to determine whether to allow or deny a request.",
@@ -53,25 +53,25 @@ export class ExpressionPolicyForm extends ModelForm<ExpressionPolicy, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name || "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-element-horizontal name="executionLogging">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.executionLogging, false)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Execution logging")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Execution logging")}</span>
                 </label>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "When this option is enabled, all executions of this policy will be logged. By default, only execution errors are logged.",
                     )}
@@ -79,7 +79,7 @@ export class ExpressionPolicyForm extends ModelForm<ExpressionPolicy, string> {
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Policy-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Expression")}
                         ?required=${true}
@@ -90,7 +90,7 @@ export class ExpressionPolicyForm extends ModelForm<ExpressionPolicy, string> {
                             value="${ifDefined(this.instance?.expression)}"
                         >
                         </ak-codemirror>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Expression using Python.")}
                             <a
                                 target="_blank"

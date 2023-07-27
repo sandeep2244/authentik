@@ -115,7 +115,7 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
     renderSettings(): TemplateResult {
         if (!this.plexToken) {
             return html` <button
-                class="pf-c-button pf-m-primary"
+                class="pf-v5-c-button pf-m-primary"
                 type="button"
                 @click=${() => {
                     this.doAuth();
@@ -125,7 +125,7 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
             </button>`;
         }
         return html` <button
-                class="pf-c-button pf-m-secondary"
+                class="pf-v5-c-button pf-m-secondary"
                 type="button"
                 @click=${() => {
                     this.doAuth();
@@ -134,18 +134,18 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
                 ${msg("Re-authenticate with plex")}
             </button>
             <ak-form-element-horizontal name="allowFriends">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.allowFriends, true)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label"
+                    <span class="pf-v5-c-switch__label"
                         >${msg(
                             "Allow friends to authenticate via Plex, even if you don't share any servers",
                         )}</span
@@ -157,7 +157,7 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
                 ?required=${true}
                 name="allowedServers"
             >
-                <select class="pf-c-form-control" multiple>
+                <select class="pf-v5-c-form-control" multiple>
                     ${this.plexResources?.map((r) => {
                         const selected = Array.from(this.instance?.allowedServers || []).some(
                             (server) => {
@@ -169,24 +169,24 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
                         </option>`;
                     })}
                 </select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Select which server a user has to be a member of to be allowed to authenticate.",
                     )}
                 </p>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("Hold control/command to select multiple items.")}
                 </p>
             </ak-form-element-horizontal>`;
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal label=${msg("Name")} ?required=${true} name="name">
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -194,23 +194,23 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.slug)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-element-horizontal name="enabled">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.enabled, true)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Enabled")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Enabled")}</span>
                 </label>
             </ak-form-element-horizontal>
             <ak-form-element-horizontal
@@ -218,7 +218,7 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
                 ?required=${true}
                 name="userMatchingMode"
             >
-                <select class="pf-c-form-control">
+                <select class="pf-v5-c-form-control">
                     <option
                         value=${UserMatchingModeEnum.Identifier}
                         ?selected=${this.instance?.userMatchingMode ===
@@ -263,16 +263,16 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
                         this.instance?.userPathTemplate,
                         "goauthentik.io/sources/%(slug)s",
                     )}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
-                <p class="pf-c-form__helper-text">${placeholderHelperText}</p>
+                <p class="pf-v5-c-form__helper-text">${placeholderHelperText}</p>
             </ak-form-element-horizontal>
             ${rootInterface()?.config?.capabilities.includes(CapabilitiesEnum.CanSaveMedia)
                 ? html`<ak-form-element-horizontal label=${msg("Icon")} name="icon">
-                          <input type="file" value="" class="pf-c-form-control" />
+                          <input type="file" value="" class="pf-v5-c-form-control" />
                           ${this.instance?.icon
                               ? html`
-                                    <p class="pf-c-form__helper-text">
+                                    <p class="pf-v5-c-form__helper-text">
                                         ${msg("Currently set to:")} ${this.instance?.icon}
                                     </p>
                                 `
@@ -281,25 +281,25 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
                       ${this.instance?.icon
                           ? html`
                                 <ak-form-element-horizontal>
-                                    <label class="pf-c-switch">
+                                    <label class="pf-v5-c-switch">
                                         <input
-                                            class="pf-c-switch__input"
+                                            class="pf-v5-c-switch__input"
                                             type="checkbox"
                                             @change=${(ev: Event) => {
                                                 const target = ev.target as HTMLInputElement;
                                                 this.clearIcon = target.checked;
                                             }}
                                         />
-                                        <span class="pf-c-switch__toggle">
-                                            <span class="pf-c-switch__toggle-icon">
+                                        <span class="pf-v5-c-switch__toggle">
+                                            <span class="pf-v5-c-switch__toggle-icon">
                                                 <i class="fas fa-check" aria-hidden="true"></i>
                                             </span>
                                         </span>
-                                        <span class="pf-c-switch__label">
+                                        <span class="pf-v5-c-switch__label">
                                             ${msg("Clear icon")}
                                         </span>
                                     </label>
-                                    <p class="pf-c-form__helper-text">
+                                    <p class="pf-v5-c-form__helper-text">
                                         ${msg("Delete currently set icon.")}
                                     </p>
                                 </ak-form-element-horizontal>
@@ -309,13 +309,13 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
                       <input
                           type="text"
                           value="${first(this.instance?.icon, "")}"
-                          class="pf-c-form-control"
+                          class="pf-v5-c-form-control"
                       />
-                      <p class="pf-c-form__helper-text">${iconHelperText}</p>
+                      <p class="pf-v5-c-form__helper-text">${iconHelperText}</p>
                   </ak-form-element-horizontal>`}
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Protocol settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Client ID")}
                         ?required=${true}
@@ -324,7 +324,7 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
                         <input
                             type="text"
                             value="${first(this.instance?.clientId, "")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
                     </ak-form-element-horizontal>
@@ -333,7 +333,7 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
             </ak-form-group>
             <ak-form-group>
                 <span slot="header"> ${msg("Flow settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Authentication flow")}
                         ?required=${true}
@@ -376,7 +376,7 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Flow to use when authenticating existing users.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -422,7 +422,7 @@ export class PlexSourceForm extends ModelForm<PlexSource, string> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Flow to use when enrolling new users.")}
                         </p>
                     </ak-form-element-horizontal>

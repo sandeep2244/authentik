@@ -39,7 +39,7 @@ export class DenyStageForm extends ModelForm<DenyStage, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "Statically deny the flow. To use this stage effectively, disable *Evaluate on plan* on the respective binding.",
@@ -49,7 +49,7 @@ export class DenyStageForm extends ModelForm<DenyStage, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name || "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>

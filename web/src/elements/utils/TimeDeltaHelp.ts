@@ -20,7 +20,7 @@ export class TimeDeltaHelp extends AKElement {
 
     render(): TemplateResult {
         return html` <ak-tooltip>
-            <p class="pf-c-form__helper-text" slot="trigger">
+            <p class="pf-v5-c-form__helper-text" slot="trigger">
                 ${this.negative
                     ? msg("(Format: hours=-1;minutes=-2;seconds=-3).")
                     : msg("(Format: hours=1;minutes=2;seconds=3).")}
@@ -29,7 +29,7 @@ export class TimeDeltaHelp extends AKElement {
 
             <div slot="tooltip">
                 ${msg("The following keywords are supported:")}
-                <ul class="pf-c-list">
+                <ul class="pf-v5-c-list">
                     <li><pre>microseconds</pre></li>
                     <li><pre>milliseconds</pre></li>
                     <li><pre>seconds</pre></li>

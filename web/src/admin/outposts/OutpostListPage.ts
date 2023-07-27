@@ -134,13 +134,13 @@ export class OutpostListPage extends TablePage<Outpost> {
                         .embedded=${item.managed === "goauthentik.io/outposts/embedded"}
                     >
                     </ak-outpost-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-edit"></i>
                     </button>
                 </ak-forms-modal>
                 ${item.managed !== "goauthentik.io/outposts/embedded"
                     ? html`<ak-outpost-deployment-modal .outpost=${item} size=${PFSize.Medium}>
-                          <button slot="trigger" class="pf-c-button pf-m-tertiary">
+                          <button slot="trigger" class="pf-v5-c-button pf-m-tertiary">
                               ${msg("View Deployment Info")}
                           </button>
                       </ak-outpost-deployment-modal>`
@@ -150,17 +150,17 @@ export class OutpostListPage extends TablePage<Outpost> {
 
     renderExpanded(item: Outpost): TemplateResult {
         return html`<td role="cell" colspan="5">
-            <div class="pf-c-table__expandable-row-content">
+            <div class="pf-v5-c-table__expandable-row-content">
                 <h3>
                     ${msg(
                         "Detailed health (one instance per column, data is cached so may be out of date)",
                     )}
                 </h3>
-                <dl class="pf-c-description-list pf-m-3-col-on-lg">
+                <dl class="pf-v5-c-description-list pf-m-3-col-on-lg">
                     ${this.health[item.pk].map((h) => {
-                        return html`<div class="pf-c-description-list__group">
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                        return html`<div class="pf-v5-c-description-list__group">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     <ak-outpost-health .outpostHealth=${h}></ak-outpost-health>
                                 </div>
                             </dd>
@@ -187,7 +187,7 @@ export class OutpostListPage extends TablePage<Outpost> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -199,7 +199,7 @@ export class OutpostListPage extends TablePage<Outpost> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Outpost")} </span>
                 <ak-outpost-form slot="form"> </ak-outpost-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Create")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Create")}</button>
             </ak-forms-modal>
         `;
     }

@@ -92,7 +92,7 @@ export class TokenListPage extends TablePage<Token> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -104,7 +104,7 @@ export class TokenListPage extends TablePage<Token> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Token")} </span>
                 <ak-token-form slot="form"> </ak-token-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Create")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Create")}</button>
             </ak-forms-modal>
         `;
     }
@@ -127,13 +127,13 @@ export class TokenListPage extends TablePage<Token> {
                           <span slot="submit"> ${msg("Update")} </span>
                           <span slot="header"> ${msg("Update Token")} </span>
                           <ak-token-form slot="form" .instancePk=${item.identifier}></ak-token-form>
-                          <button slot="trigger" class="pf-c-button pf-m-plain">
+                          <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                               <i class="fas fa-edit"></i>
                           </button>
                       </ak-forms-modal>`
                     : html``}
                 <ak-token-copy-button
-                    class="pf-c-button pf-m-plain"
+                    class="pf-v5-c-button pf-m-plain"
                     identifier="${item.identifier}"
                 >
                     <i class="fas fa-copy"></i>

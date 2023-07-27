@@ -71,7 +71,7 @@ export class AuthenticatorValidateStageForm extends ModelForm<AuthenticatorValid
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "Stage used to validate any authenticator. This stage should be used during authentication or authorization flows.",
@@ -81,19 +81,19 @@ export class AuthenticatorValidateStageForm extends ModelForm<AuthenticatorValid
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name || "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Device classes")}
                         ?required=${true}
                         name="deviceClasses"
                     >
-                        <select name="users" class="pf-c-form-control" multiple>
+                        <select name="users" class="pf-v5-c-form-control" multiple>
                             <option
                                 value=${DeviceClassesEnum.Static}
                                 ?selected=${this.isDeviceClassSelected(DeviceClassesEnum.Static)}
@@ -125,10 +125,10 @@ export class AuthenticatorValidateStageForm extends ModelForm<AuthenticatorValid
                                 ${msg("SMS-based Authenticators")}
                             </option>
                         </select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Device classes which can be used to authenticate.")}
                         </p>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Hold control/command to select multiple items.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -140,10 +140,10 @@ export class AuthenticatorValidateStageForm extends ModelForm<AuthenticatorValid
                         <input
                             type="text"
                             value="${this.instance?.lastAuthThreshold || "seconds=0"}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "If any of the devices user of the types selected above have been used within this duration, this stage will be skipped.",
                             )}
@@ -156,7 +156,7 @@ export class AuthenticatorValidateStageForm extends ModelForm<AuthenticatorValid
                         name="notConfiguredAction"
                     >
                         <select
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             @change=${(ev: Event) => {
                                 const target = ev.target as HTMLSelectElement;
                                 if (
@@ -225,7 +225,7 @@ export class AuthenticatorValidateStageForm extends ModelForm<AuthenticatorValid
                                   label=${msg("Configuration stages")}
                                   name="configurationStages"
                               >
-                                  <select class="pf-c-form-control" multiple>
+                                  <select class="pf-v5-c-form-control" multiple>
                                       ${this.stages?.results.map((stage) => {
                                           const selected = Array.from(
                                               this.instance?.configurationStages || [],
@@ -240,12 +240,12 @@ export class AuthenticatorValidateStageForm extends ModelForm<AuthenticatorValid
                                           </option>`;
                                       })}
                                   </select>
-                                  <p class="pf-c-form__helper-text">
+                                  <p class="pf-v5-c-form__helper-text">
                                       ${msg(
                                           "Stages used to configure Authenticator when user doesn't have any compatible devices. After this configuration Stage passes, the user is not prompted again.",
                                       )}
                                   </p>
-                                  <p class="pf-c-form__helper-text">
+                                  <p class="pf-v5-c-form__helper-text">
                                       ${msg(
                                           "When multiple stages are selected, the user can choose which one they want to enroll.",
                                       )}

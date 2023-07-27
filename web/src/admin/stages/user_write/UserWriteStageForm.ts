@@ -44,7 +44,7 @@ export class UserWriteStageForm extends ModelForm<UserWriteStage, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     `Write any data from the flow's context's 'prompt_data' to the currently pending user. If no user
@@ -55,13 +55,13 @@ export class UserWriteStageForm extends ModelForm<UserWriteStage, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name || "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal name="userCreationMode">
                         <ak-radio
                             .options=${[
@@ -93,22 +93,22 @@ export class UserWriteStageForm extends ModelForm<UserWriteStage, string> {
                         </ak-radio>
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal name="createUsersAsInactive">
-                        <label class="pf-c-switch">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${first(this.instance?.createUsersAsInactive, true)}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label"
+                            <span class="pf-v5-c-switch__label"
                                 >${msg("Create users as inactive")}</span
                             >
                         </label>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Mark newly created users as inactive.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -119,10 +119,10 @@ export class UserWriteStageForm extends ModelForm<UserWriteStage, string> {
                         <input
                             type="text"
                             value="${first(this.instance?.userPathTemplate, "")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Path new users will be created under. If left blank, the default path will be used.",
                             )}
@@ -154,7 +154,7 @@ export class UserWriteStageForm extends ModelForm<UserWriteStage, string> {
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Newly created users are added to this group, if a group is selected.",
                             )}

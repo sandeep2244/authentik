@@ -57,12 +57,12 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
         }
         return html`<ak-form-group>
             <span slot="header"> ${msg("Connection settings")} </span>
-            <div slot="body" class="pf-c-form">
+            <div slot="body" class="pf-v5-c-form">
                 <ak-form-element-horizontal label=${msg("SMTP Host")} ?required=${true} name="host">
                     <input
                         type="text"
                         value="${ifDefined(this.instance?.host || "")}"
-                        class="pf-c-form-control"
+                        class="pf-v5-c-form-control"
                         required
                     />
                 </ak-form-element-horizontal>
@@ -70,7 +70,7 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
                     <input
                         type="number"
                         value="${first(this.instance?.port, 25)}"
-                        class="pf-c-form-control"
+                        class="pf-v5-c-form-control"
                         required
                     />
                 </ak-form-element-horizontal>
@@ -78,7 +78,7 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
                     <input
                         type="text"
                         value="${ifDefined(this.instance?.username || "")}"
-                        class="pf-c-form-control"
+                        class="pf-v5-c-form-control"
                     />
                 </ak-form-element-horizontal>
                 <ak-form-element-horizontal
@@ -86,36 +86,36 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
                     ?writeOnly=${this.instance !== undefined}
                     name="password"
                 >
-                    <input type="text" value="" class="pf-c-form-control" />
+                    <input type="text" value="" class="pf-v5-c-form-control" />
                 </ak-form-element-horizontal>
                 <ak-form-element-horizontal name="useTls">
-                    <label class="pf-c-switch">
+                    <label class="pf-v5-c-switch">
                         <input
-                            class="pf-c-switch__input"
+                            class="pf-v5-c-switch__input"
                             type="checkbox"
                             ?checked=${first(this.instance?.useTls, true)}
                         />
-                        <span class="pf-c-switch__toggle">
-                            <span class="pf-c-switch__toggle-icon">
+                        <span class="pf-v5-c-switch__toggle">
+                            <span class="pf-v5-c-switch__toggle-icon">
                                 <i class="fas fa-check" aria-hidden="true"></i>
                             </span>
                         </span>
-                        <span class="pf-c-switch__label">${msg("Use TLS")}</span>
+                        <span class="pf-v5-c-switch__label">${msg("Use TLS")}</span>
                     </label>
                 </ak-form-element-horizontal>
                 <ak-form-element-horizontal name="useSsl">
-                    <label class="pf-c-switch">
+                    <label class="pf-v5-c-switch">
                         <input
-                            class="pf-c-switch__input"
+                            class="pf-v5-c-switch__input"
                             type="checkbox"
                             ?checked=${first(this.instance?.useSsl, false)}
                         />
-                        <span class="pf-c-switch__toggle">
-                            <span class="pf-c-switch__toggle-icon">
+                        <span class="pf-v5-c-switch__toggle">
+                            <span class="pf-v5-c-switch__toggle-icon">
                                 <i class="fas fa-check" aria-hidden="true"></i>
                             </span>
                         </span>
-                        <span class="pf-c-switch__label">${msg("Use SSL")}</span>
+                        <span class="pf-v5-c-switch__label">${msg("Use SSL")}</span>
                     </label>
                 </ak-form-element-horizontal>
                 <ak-form-element-horizontal
@@ -126,7 +126,7 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
                     <input
                         type="number"
                         value="${first(this.instance?.timeout, 30)}"
-                        class="pf-c-form-control"
+                        class="pf-v5-c-form-control"
                         required
                     />
                 </ak-form-element-horizontal>
@@ -138,7 +138,7 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
                     <input
                         type="text"
                         value="${ifDefined(this.instance?.fromAddress || "system@authentik.local")}"
-                        class="pf-c-form-control"
+                        class="pf-v5-c-form-control"
                         required
                     />
                 </ak-form-element-horizontal>
@@ -147,7 +147,7 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "Verify the user's email address by sending them a one-time-link. Can also be used for recovery to verify the user's authenticity.",
@@ -157,39 +157,39 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name || "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal name="activateUserOnSuccess">
-                        <label class="pf-c-switch">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${first(this.instance?.activateUserOnSuccess, true)}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label"
+                            <span class="pf-v5-c-switch__label"
                                 >${msg("Activate pending user on success")}</span
                             >
                         </label>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "When a user returns from the email successfully, their account will be activated.",
                             )}
                         </p>
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal name="useGlobalSettings">
-                        <label class="pf-c-switch">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${first(this.instance?.useGlobalSettings, true)}
                                 @change=${(ev: Event) => {
@@ -197,14 +197,14 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
                                     this.showConnectionSettings = !target.checked;
                                 }}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label">${msg("Use global settings")}</span>
+                            <span class="pf-v5-c-switch__label">${msg("Use global settings")}</span>
                         </label>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "When enabled, global Email connection settings will be used and connection settings below will be ignored.",
                             )}
@@ -218,10 +218,10 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
                         <input
                             type="number"
                             value="${first(this.instance?.tokenExpiry, 30)}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Time in minutes the token sent is valid.")}
                         </p>
                     </ak-form-element-horizontal>
@@ -233,7 +233,7 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
                         <input
                             type="text"
                             value="${first(this.instance?.subject, "authentik")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
                     </ak-form-element-horizontal>
@@ -242,7 +242,7 @@ export class EmailStageForm extends ModelForm<EmailStage, string> {
                         ?required=${true}
                         name="template"
                     >
-                        <select name="users" class="pf-c-form-control">
+                        <select name="users" class="pf-v5-c-form-control">
                             ${this.templates?.map((template) => {
                                 const selected = this.instance?.template === template.name;
                                 return html`<option

@@ -49,7 +49,7 @@ export class ConsentStageForm extends ModelForm<ConsentStage, string> {
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "Prompt for the user's consent. The consent can either be permanent or expire in a defined amount of time.",
@@ -59,16 +59,16 @@ export class ConsentStageForm extends ModelForm<ConsentStage, string> {
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name || "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal label=${msg("Mode")} ?required=${true} name="mode">
                         <select
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             @change=${(ev: Event) => {
                                 const target = ev.target as HTMLSelectElement;
                                 if (
@@ -111,10 +111,10 @@ export class ConsentStageForm extends ModelForm<ConsentStage, string> {
                         <input
                             type="text"
                             value="${ifDefined(this.instance?.consentExpireIn || "weeks=4")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg("Offset after which consent expires.")}
                         </p>
                         <ak-utils-time-delta-help></ak-utils-time-delta-help>

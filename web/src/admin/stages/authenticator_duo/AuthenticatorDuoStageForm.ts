@@ -50,7 +50,7 @@ export class AuthenticatorDuoStageForm extends ModelForm<AuthenticatorDuoStage, 
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "Stage used to configure a duo-based authenticator. This stage should be used for configuration flows.",
@@ -60,7 +60,7 @@ export class AuthenticatorDuoStageForm extends ModelForm<AuthenticatorDuoStage, 
                 <input
                     type="text"
                     value="${first(this.instance?.name, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -72,9 +72,9 @@ export class AuthenticatorDuoStageForm extends ModelForm<AuthenticatorDuoStage, 
                 <input
                     type="text"
                     value="${first(this.instance?.friendlyName, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Display name of this authenticator, used by users when they enroll an authenticator.",
                     )}
@@ -88,13 +88,13 @@ export class AuthenticatorDuoStageForm extends ModelForm<AuthenticatorDuoStage, 
                 <input
                     type="text"
                     value="${first(this.instance?.apiHostname, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Duo Auth API")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Integration key")}
                         ?required=${true}
@@ -103,7 +103,7 @@ export class AuthenticatorDuoStageForm extends ModelForm<AuthenticatorDuoStage, 
                         <input
                             type="text"
                             value="${first(this.instance?.clientId, "")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                             required
                         />
                     </ak-form-element-horizontal>
@@ -113,7 +113,7 @@ export class AuthenticatorDuoStageForm extends ModelForm<AuthenticatorDuoStage, 
                         ?writeOnly=${this.instance !== undefined}
                         name="clientSecret"
                     >
-                        <input type="text" value="" class="pf-c-form-control" required />
+                        <input type="text" value="" class="pf-v5-c-form-control" required />
                     </ak-form-element-horizontal>
                 </div>
             </ak-form-group>
@@ -125,7 +125,7 @@ export class AuthenticatorDuoStageForm extends ModelForm<AuthenticatorDuoStage, 
             This will allow authentik to import devices automatically.`,
                     )}
                 </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Integration key")}
                         name="adminIntegrationKey"
@@ -133,7 +133,7 @@ export class AuthenticatorDuoStageForm extends ModelForm<AuthenticatorDuoStage, 
                         <input
                             type="text"
                             value="${first(this.instance?.adminIntegrationKey, "")}"
-                            class="pf-c-form-control"
+                            class="pf-v5-c-form-control"
                         />
                     </ak-form-element-horizontal>
                     <ak-form-element-horizontal
@@ -141,13 +141,13 @@ export class AuthenticatorDuoStageForm extends ModelForm<AuthenticatorDuoStage, 
                         ?writeOnly=${this.instance !== undefined}
                         name="adminSecretKey"
                     >
-                        <input type="text" value="" class="pf-c-form-control" />
+                        <input type="text" value="" class="pf-v5-c-form-control" />
                     </ak-form-element-horizontal>
                 </div>
             </ak-form-group>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Configuration flow")}
                         name="configureFlow"
@@ -182,7 +182,7 @@ export class AuthenticatorDuoStageForm extends ModelForm<AuthenticatorDuoStage, 
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage.",
                             )}

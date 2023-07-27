@@ -47,30 +47,30 @@ export class ServiceConnectionDockerForm extends ModelForm<DockerServiceConnecti
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <ak-form-element-horizontal label=${msg("Name")} ?required=${true} name="name">
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.name)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
             <ak-form-element-horizontal name="local">
-                <label class="pf-c-switch">
+                <label class="pf-v5-c-switch">
                     <input
-                        class="pf-c-switch__input"
+                        class="pf-v5-c-switch__input"
                         type="checkbox"
                         ?checked=${first(this.instance?.local, false)}
                     />
-                    <span class="pf-c-switch__toggle">
-                        <span class="pf-c-switch__toggle-icon">
+                    <span class="pf-v5-c-switch__toggle">
+                        <span class="pf-v5-c-switch__toggle-icon">
                             <i class="fas fa-check" aria-hidden="true"></i>
                         </span>
                     </span>
-                    <span class="pf-c-switch__label">${msg("Local")}</span>
+                    <span class="pf-v5-c-switch__label">${msg("Local")}</span>
                 </label>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "If enabled, use the local connection. Required Docker socket/Kubernetes Integration.",
                     )}
@@ -80,10 +80,10 @@ export class ServiceConnectionDockerForm extends ModelForm<DockerServiceConnecti
                 <input
                     type="text"
                     value="${ifDefined(this.instance?.url)}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Can be in the format of 'unix://' when connecting to a local docker daemon, using 'ssh://' to connect via SSH, or 'https://:2376' when connecting to a remote system.",
                     )}
@@ -120,7 +120,7 @@ export class ServiceConnectionDockerForm extends ModelForm<DockerServiceConnecti
                     ?blankable=${true}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "CA which the endpoint's Certificate is verified against. Can be left empty for no validation.",
                     )}
@@ -157,12 +157,12 @@ export class ServiceConnectionDockerForm extends ModelForm<DockerServiceConnecti
                     ?blankable=${true}
                 >
                 </ak-search-select>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Certificate/Key used for authentication. Can be left empty for no authentication.",
                     )}
                 </p>
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg("When connecting via SSH, this keypair is used for authentication.")}
                 </p>
             </ak-form-element-horizontal>

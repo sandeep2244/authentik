@@ -32,7 +32,7 @@ export class LibraryApplication extends AKElement {
             PFButton,
             PFAvatar,
             css`
-                .pf-c-card {
+                .pf-v5-c-card {
                     height: 100%;
                 }
                 i.pf-icon {
@@ -41,14 +41,14 @@ export class LibraryApplication extends AKElement {
                     flex-direction: column;
                     justify-content: center;
                 }
-                .pf-c-avatar {
-                    --pf-c-avatar--BorderRadius: 0;
+                .pf-v5-c-avatar {
+                    --pf-v5-c-avatar--BorderRadius: 0;
                 }
-                .pf-c-card__header {
+                .pf-v5-c-card__header {
                     min-height: 60px;
                     justify-content: space-between;
                 }
-                .pf-c-card__header a {
+                .pf-v5-c-card__header a {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -65,7 +65,7 @@ export class LibraryApplication extends AKElement {
                 return html`<i class="fas ${icon}"></i>`;
             }
             return html`<img
-                class="app-icon pf-c-avatar"
+                class="app-icon pf-v5-c-avatar"
                 src="${ifDefined(this.application.metaIcon)}"
                 alt="${msg("Application Icon")}"
             />`;
@@ -79,12 +79,12 @@ export class LibraryApplication extends AKElement {
         }
         const me = rootInterface<UserInterface>()?.me;
         return html` <div
-            class="pf-c-card pf-m-hoverable pf-m-compact ${this.selected
+            class="pf-v5-c-card pf-m-hoverable pf-m-compact ${this.selected
                 ? "pf-m-selectable pf-m-selected"
                 : ""}"
             style="background: ${this.background} !important"
         >
-            <div class="pf-c-card__header">
+            <div class="pf-v5-c-card__header">
                 <a
                     href="${ifDefined(this.application.launchUrl ?? "")}"
                     target="${ifDefined(this.application.openInNewTab ? "_blank" : undefined)}"
@@ -94,7 +94,7 @@ export class LibraryApplication extends AKElement {
                 ${rootInterface()?.uiConfig?.enabledFeatures.applicationEdit && me?.user.isSuperuser
                     ? html`
                           <a
-                              class="pf-c-button pf-m-control pf-m-small"
+                              class="pf-v5-c-button pf-m-control pf-m-small"
                               href="/if/admin/#/core/applications/${this.application?.slug}"
                           >
                               <i class="fas fa-pencil-alt"></i>
@@ -102,7 +102,7 @@ export class LibraryApplication extends AKElement {
                       `
                     : html``}
             </div>
-            <div class="pf-c-card__title">
+            <div class="pf-v5-c-card__title">
                 <p>
                     <a
                         href="${ifDefined(this.application.launchUrl ?? "")}"
@@ -110,11 +110,11 @@ export class LibraryApplication extends AKElement {
                         >${this.application.name}</a
                     >
                 </p>
-                <div class="pf-c-content">
+                <div class="pf-v5-c-content">
                     <small>${this.application.metaPublisher}</small>
                 </div>
             </div>
-            <div class="pf-c-card__body">
+            <div class="pf-v5-c-card__body">
                 ${truncateWords(this.application.metaDescription || "", 35)}
             </div>
         </div>`;

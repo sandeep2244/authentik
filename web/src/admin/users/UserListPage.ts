@@ -127,12 +127,12 @@ export class UserListPage extends TablePage<User> {
             }}
         >
             ${shouldShowWarning
-                ? html`<div slot="notice" class="pf-c-form__alert">
-                      <div class="pf-c-alert pf-m-inline pf-m-warning">
-                          <div class="pf-c-alert__icon">
+                ? html`<div slot="notice" class="pf-v5-c-form__alert">
+                      <div class="pf-v5-c-alert pf-m-inline pf-m-warning">
+                          <div class="pf-v5-c-alert__icon">
                               <i class="fas fa-exclamation-circle"></i>
                           </div>
-                          <h4 class="pf-c-alert__title">
+                          <h4 class="pf-v5-c-alert__title">
                               ${msg(
                                   str`Warning: You're about to delete the user you're logged in as (${shouldShowWarning.username}). Proceed at your own risk.`,
                               )}
@@ -140,7 +140,7 @@ export class UserListPage extends TablePage<User> {
                       </div>
                   </div>`
                 : html``}
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Delete")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -148,12 +148,12 @@ export class UserListPage extends TablePage<User> {
 
     renderToolbarAfter(): TemplateResult {
         return html`&nbsp;
-            <div class="pf-c-toolbar__group pf-m-filter-group">
-                <div class="pf-c-toolbar__item pf-m-search-filter">
-                    <div class="pf-c-input-group">
-                        <label class="pf-c-switch">
+            <div class="pf-v5-c-toolbar__group pf-m-filter-group">
+                <div class="pf-v5-c-toolbar__item pf-m-search-filter">
+                    <div class="pf-v5-c-input-group">
+                        <label class="pf-v5-c-switch">
                             <input
-                                class="pf-c-switch__input"
+                                class="pf-v5-c-switch__input"
                                 type="checkbox"
                                 ?checked=${this.hideDeactivated}
                                 @change=${() => {
@@ -165,12 +165,12 @@ export class UserListPage extends TablePage<User> {
                                     });
                                 }}
                             />
-                            <span class="pf-c-switch__toggle">
-                                <span class="pf-c-switch__toggle-icon">
+                            <span class="pf-v5-c-switch__toggle">
+                                <span class="pf-v5-c-switch__toggle-icon">
                                     <i class="fas fa-check" aria-hidden="true"></i>
                                 </span>
                             </span>
-                            <span class="pf-c-switch__label">${msg("Hide deactivated user")}</span>
+                            <span class="pf-v5-c-switch__label">${msg("Hide deactivated user")}</span>
                         </label>
                     </div>
                 </div>
@@ -191,7 +191,7 @@ export class UserListPage extends TablePage<User> {
                     <span slot="submit"> ${msg("Update")} </span>
                     <span slot="header"> ${msg("Update User")} </span>
                     <ak-user-form slot="form" .instancePk=${item.pk}> </ak-user-form>
-                    <button slot="trigger" class="pf-c-button pf-m-plain">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                         <i class="fas fa-edit"></i>
                     </button>
                 </ak-forms-modal>
@@ -218,31 +218,31 @@ export class UserListPage extends TablePage<User> {
 
     renderExpanded(item: User): TemplateResult {
         return html`<td role="cell" colspan="3">
-                <div class="pf-c-table__expandable-row-content">
-                    <dl class="pf-c-description-list pf-m-horizontal">
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text"
+                <div class="pf-v5-c-table__expandable-row-content">
+                    <dl class="pf-v5-c-description-list pf-m-horizontal">
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text"
                                     >${msg("User status")}</span
                                 >
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     ${item.isActive ? msg("Active") : msg("Inactive")}
                                 </div>
-                                <div class="pf-c-description-list__text">
+                                <div class="pf-v5-c-description-list__text">
                                     ${item.isSuperuser ? msg("Superuser") : msg("Regular user")}
                                 </div>
                             </dd>
                         </div>
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text"
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text"
                                     >${msg("Change status")}</span
                                 >
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     <ak-user-active-form
                                         .obj=${item}
                                         objectLabel=${msg("User")}
@@ -257,19 +257,19 @@ export class UserListPage extends TablePage<User> {
                                             });
                                         }}
                                     >
-                                        <button slot="trigger" class="pf-c-button pf-m-warning">
+                                        <button slot="trigger" class="pf-v5-c-button pf-m-warning">
                                             ${item.isActive ? msg("Deactivate") : msg("Activate")}
                                         </button>
                                     </ak-user-active-form>
                                 </div>
                             </dd>
                         </div>
-                        <div class="pf-c-description-list__group">
-                            <dt class="pf-c-description-list__term">
-                                <span class="pf-c-description-list__text">${msg("Recovery")}</span>
+                        <div class="pf-v5-c-description-list__group">
+                            <dt class="pf-v5-c-description-list__term">
+                                <span class="pf-v5-c-description-list__text">${msg("Recovery")}</span>
                             </dt>
-                            <dd class="pf-c-description-list__description">
-                                <div class="pf-c-description-list__text">
+                            <dd class="pf-v5-c-description-list__description">
+                                <div class="pf-v5-c-description-list__text">
                                     <ak-forms-modal size=${PFSize.Medium}>
                                         <span slot="submit">${msg("Update password")}</span>
                                         <span slot="header">${msg("Update password")}</span>
@@ -277,7 +277,7 @@ export class UserListPage extends TablePage<User> {
                                             slot="form"
                                             .instancePk=${item.pk}
                                         ></ak-user-password-form>
-                                        <button slot="trigger" class="pf-c-button pf-m-secondary">
+                                        <button slot="trigger" class="pf-v5-c-button pf-m-secondary">
                                             ${msg("Set password")}
                                         </button>
                                     </ak-forms-modal>
@@ -330,7 +330,7 @@ export class UserListPage extends TablePage<User> {
                                                         </ak-user-reset-email-form>
                                                         <button
                                                             slot="trigger"
-                                                            class="pf-c-button pf-m-secondary"
+                                                            class="pf-v5-c-button pf-m-secondary"
                                                         >
                                                             ${msg("Email recovery link")}
                                                         </button>
@@ -362,13 +362,13 @@ export class UserListPage extends TablePage<User> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create User")} </span>
                 <ak-user-form slot="form"> </ak-user-form>
-                <button slot="trigger" class="pf-c-button pf-m-primary">${msg("Create")}</button>
+                <button slot="trigger" class="pf-v5-c-button pf-m-primary">${msg("Create")}</button>
             </ak-forms-modal>
             <ak-forms-modal .closeAfterSuccessfulSubmit=${false} .cancelText=${msg("Close")}>
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Service account")} </span>
                 <ak-user-service-account slot="form"> </ak-user-service-account>
-                <button slot="trigger" class="pf-c-button pf-m-secondary">
+                <button slot="trigger" class="pf-v5-c-button pf-m-secondary">
                     ${msg("Create Service account")}
                 </button>
             </ak-forms-modal>
@@ -376,10 +376,10 @@ export class UserListPage extends TablePage<User> {
     }
 
     renderSidebarBefore(): TemplateResult {
-        return html`<div class="pf-c-sidebar__panel pf-m-width-25">
-            <div class="pf-c-card">
-                <div class="pf-c-card__title">${msg("User folders")}</div>
-                <div class="pf-c-card__body">
+        return html`<div class="pf-v5-c-sidebar__panel pf-m-width-25">
+            <div class="pf-v5-c-card">
+                <div class="pf-v5-c-card__title">${msg("User folders")}</div>
+                <div class="pf-v5-c-card__body">
                     <ak-treeview
                         .items=${this.userPaths?.paths || []}
                         activePath=${this.activePath}

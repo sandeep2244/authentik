@@ -47,7 +47,7 @@ export class RelatedGroupAdd extends Form<{ groups: string[] }> {
 
     renderInlineForm(): TemplateResult {
         return html`<ak-form-element-horizontal label=${msg("Groups to add")} name="groups">
-            <div class="pf-c-input-group">
+            <div class="pf-v5-c-input-group">
                 <ak-user-group-select-table
                     .confirm=${(items: Group[]) => {
                         this.groupsToAdd = items;
@@ -55,11 +55,11 @@ export class RelatedGroupAdd extends Form<{ groups: string[] }> {
                         return Promise.resolve();
                     }}
                 >
-                    <button slot="trigger" class="pf-c-button pf-m-control" type="button">
+                    <button slot="trigger" class="pf-v5-c-button pf-m-control" type="button">
                         <i class="fas fa-plus" aria-hidden="true"></i>
                     </button>
                 </ak-user-group-select-table>
-                <div class="pf-c-form-control">
+                <div class="pf-v5-c-form-control">
                     <ak-chip-group>
                         ${this.groupsToAdd.map((group) => {
                             return html`<ak-chip
@@ -132,7 +132,7 @@ export class RelatedGroupList extends Table<Group> {
                 });
             }}
         >
-            <button ?disabled=${disabled} slot="trigger" class="pf-c-button pf-m-danger">
+            <button ?disabled=${disabled} slot="trigger" class="pf-v5-c-button pf-m-danger">
                 ${msg("Remove")}
             </button>
         </ak-forms-delete-bulk>`;
@@ -149,7 +149,7 @@ export class RelatedGroupList extends Table<Group> {
                 <span slot="submit"> ${msg("Update")} </span>
                 <span slot="header"> ${msg("Update Group")} </span>
                 <ak-group-form slot="form" .instancePk=${item.pk}> </ak-group-form>
-                <button slot="trigger" class="pf-c-button pf-m-plain">
+                <button slot="trigger" class="pf-v5-c-button pf-m-plain">
                     <i class="fas fa-edit"></i>
                 </button>
             </ak-forms-modal>`,
@@ -164,7 +164,7 @@ export class RelatedGroupList extends Table<Group> {
                       <span slot="header"> ${msg("Add Group")} </span>
                       <ak-group-related-add .user=${this.targetUser} slot="form">
                       </ak-group-related-add>
-                      <button slot="trigger" class="pf-c-button pf-m-primary">
+                      <button slot="trigger" class="pf-v5-c-button pf-m-primary">
                           ${msg("Add to existing group")}
                       </button>
                   </ak-forms-modal>`
@@ -173,7 +173,7 @@ export class RelatedGroupList extends Table<Group> {
                 <span slot="submit"> ${msg("Create")} </span>
                 <span slot="header"> ${msg("Create Group")} </span>
                 <ak-group-form slot="form"> </ak-group-form>
-                <button slot="trigger" class="pf-c-button pf-m-secondary">
+                <button slot="trigger" class="pf-v5-c-button pf-m-secondary">
                     ${msg("Add new group")}
                 </button>
             </ak-forms-modal>

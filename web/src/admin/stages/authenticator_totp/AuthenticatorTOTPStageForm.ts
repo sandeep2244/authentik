@@ -50,7 +50,7 @@ export class AuthenticatorTOTPStageForm extends ModelForm<AuthenticatorTOTPStage
     }
 
     renderForm(): TemplateResult {
-        return html`<form class="pf-c-form pf-m-horizontal">
+        return html`<form class="pf-v5-c-form pf-m-horizontal">
             <div class="form-help-text">
                 ${msg(
                     "Stage used to configure a TOTP authenticator (i.e. Authy/Google Authenticator).",
@@ -60,7 +60,7 @@ export class AuthenticatorTOTPStageForm extends ModelForm<AuthenticatorTOTPStage
                 <input
                     type="text"
                     value="${first(this.instance?.name, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                     required
                 />
             </ak-form-element-horizontal>
@@ -72,9 +72,9 @@ export class AuthenticatorTOTPStageForm extends ModelForm<AuthenticatorTOTPStage
                 <input
                     type="text"
                     value="${first(this.instance?.friendlyName, "")}"
-                    class="pf-c-form-control"
+                    class="pf-v5-c-form-control"
                 />
-                <p class="pf-c-form__helper-text">
+                <p class="pf-v5-c-form__helper-text">
                     ${msg(
                         "Display name of this authenticator, used by users when they enroll an authenticator.",
                     )}
@@ -82,13 +82,13 @@ export class AuthenticatorTOTPStageForm extends ModelForm<AuthenticatorTOTPStage
             </ak-form-element-horizontal>
             <ak-form-group .expanded=${true}>
                 <span slot="header"> ${msg("Stage-specific settings")} </span>
-                <div slot="body" class="pf-c-form">
+                <div slot="body" class="pf-v5-c-form">
                     <ak-form-element-horizontal
                         label=${msg("Digits")}
                         ?required=${true}
                         name="digits"
                     >
-                        <select name="users" class="pf-c-form-control">
+                        <select name="users" class="pf-v5-c-form-control">
                             <option
                                 value="${DigitsEnum.NUMBER_6}"
                                 ?selected=${this.instance?.digits === DigitsEnum.NUMBER_6}
@@ -139,7 +139,7 @@ export class AuthenticatorTOTPStageForm extends ModelForm<AuthenticatorTOTPStage
                             ?blankable=${true}
                         >
                         </ak-search-select>
-                        <p class="pf-c-form__helper-text">
+                        <p class="pf-v5-c-form__helper-text">
                             ${msg(
                                 "Flow used by an authenticated user to configure this Stage. If empty, user will not be able to configure this stage.",
                             )}
