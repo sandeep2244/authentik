@@ -1,0 +1,51 @@
+.group {
+    gap: var(--ak-spacing-xs);
+    label ::slotted(*) {
+        line-height: 1rem;
+        vertical-align: top;
+    }
+}
+
+@media only screen and (min-width: 520px) {
+    .group {
+        gap: var(--ak-spacing-3xs);
+        align-items: flex-start;
+    }
+}
+
+.radio-stack {
+    display: grid;
+    gap: var(--ak-spacing-xs);
+    align-items: flex-start;
+    padding-top: var(--ak-spacing-2xs) 0 0 0;
+    margin: 0;
+
+    .radio-option {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--ak-spacing-4xs) var(--ak-spacing-2xs);
+        place-items: start;
+        padding: 0;
+        margin: 0;
+
+        input {
+            margin-top: 0;
+            margin-left: var(--ak-spacing-4xs);
+            cursor: pointer;
+            height: var(--ak-spacing-s);
+        }
+
+        label {
+            margin-top: 0;
+            cursor: pointer;
+            font-weight: 400;
+            line-height: var(--ak-spacing-s);
+        }
+
+        .description {
+            grid-column: 2 / auto;
+            font-size: var(--ak-font-size-0);
+            color: rgb(106, 110, 115);
+        }
+    }
+}

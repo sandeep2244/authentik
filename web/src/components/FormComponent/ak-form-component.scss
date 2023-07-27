@@ -1,0 +1,89 @@
+:host {
+    --ak-component-label--width: 12ch;
+    --ak-component-control--width: 1fr;
+    --ak-font-weight-bold: bold;
+    --ak-font-size--sm: calc(0.75 * var(--ak-base-font-size));
+    --ak-color--danger: rgb(201, 25, 11);
+    --ak-color--input-primary: rgb(21, 21, 21);
+    --ak-color--background-primary: rgb(255, 255, 255);
+    --ak-color--input-border-primary: rgb(240, 240, 240);
+    --ak-color--input-border-emphasis: rgb(138, 141, 144);
+    --ak-color--input-border-focused: rgb(0, 95, 204);
+    --ak-color--input-disabled-color: rgb(106, 110, 115);
+    --ak-color--input-disabled-background-color: rgb(240, 240, 240);
+    --ak-color--input-disabled-border-color: rgba(0, 0, 0, 0);
+}
+
+@mixin ak-helper-text {
+    margin-top: var(--ak-spacing-4xs);
+    margin-bottom: 0;
+    margin-block-start: var(--ak-spacing-4xs);
+    margin-block-end: 0;
+    font-size: var(--ak-font-size-0);
+    color: var(--ak-base-text--color);
+}
+
+@mixin ak-error-text {
+    color: var(--ak-color--danger);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+
+    .label {
+        label {
+            ::slotted(*) {
+                font-size: var(--ak-font-size-0);
+                font-weight: var(--ak-font-weight-bold);
+            }
+
+            .required {
+                margin-left: var(--ak-spacing-4xs);
+                font-size: var(--ak-font-size-0);
+                color: var(--ak-color--danger);
+            }
+        }
+    }
+
+    .control {
+        width: 100%;
+        ::slotted(*) {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width: 520px) {
+    .group {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .label {
+        flex-basis: 18ch;
+    }
+
+    .required {
+        flex-basis: var(--ak-component-control--width);
+    }
+}
+
+.error-messages {
+    p {
+        @include ak-helper-text;
+        @include ak-error-text;
+
+        > :first-child {
+            margin-top: 0;
+        }
+    }
+}

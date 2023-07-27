@@ -1,0 +1,34 @@
+input {
+    font-size: var(--ak-font-size-1);
+    height: 1.5em;
+    text-overflow: ellipsis;
+    color: var(--ak-color--input-primary);
+    width: 100%;
+    line-height: 1.5em;
+    background-color: var(--ak-color--background-primary);
+    padding: var(--ak-spacing-3xs) var(--ak-spacing-2xs);
+    background-repeat: no-repeat;
+    appearance: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--ak-color--input-border-primary) var(--ak-color--input-border-primary)
+        var(--ak-color--input-border-emphasis) var(--ak-color--input-border-primary);
+    border-radius: 0;
+
+    &:focus-visible {
+        outline: none;
+    }
+
+    &:focus {
+        border-color: var(--ak-color--input-border-focused);
+        border-radius: 0.125rem;
+        box-shadow: inset 0 0 0 1px var(--ak-color--input-border-focused);
+    }
+
+    &:disabled {
+        color: var(--ak-color--input-disabled-color);
+        background-color: var(--ak-color--input-disabled-background-color);
+        cursor: not-allowed;
+        border-color: var(--ak-color--input-disabled-border-color);
+    }
+}

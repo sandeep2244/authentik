@@ -1,6 +1,59 @@
+/* Utopian font sizing algorithm approximating what we're currently using. The tuple above each line
+ * shows the font size to expect at the minimum (i.e. phone) and maximum (big desktop) sizes.
+ *
+ * @link https://utopia.fyi/type/calculator?c=320,12,1.125,1240,16,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+ *
+ */
+
+:root {
+    /* (9.48, 11.11) */
+    --ak-font-size--2: clamp(0.59rem, calc(0.56rem + 0.18vw), 0.69rem);
+    /* (21.62, 39.81) */
+    --ak-font-size--1: clamp(0.67rem, calc(0.61rem + 0.29vw), 0.83rem);
+    /* (10.67, 13.33 ) */
+    --ak-font-size-0: clamp(0.75rem, calc(0.66rem + 0.43vw), 1rem);
+    /* (12.00, 16.00 ) */
+    --ak-font-size-1: clamp(0.84rem, calc(0.72rem + 0.62vw), 1.2rem);
+    /* (13.50, 19.20 ) */
+    --ak-font-size-2: clamp(0.95rem, calc(0.78rem + 0.85vw), 1.44rem);
+    /* (15.19, 23.04 ) */
+    --ak-font-size-3: clamp(1.07rem, calc(0.84rem + 1.15vw), 1.73rem);
+    /* (17.09, 27.65 ) */
+    --ak-font-size-4: clamp(1.2rem, calc(0.9rem + 1.52vw), 2.07rem);
+    /* (19.22, 33.18 ) */
+    --ak-font-size-5: clamp(1.35rem, calc(0.96rem + 1.98vw), 2.49rem);
+}
+
+/* Utopian spacing algorithm approximating what we're currently using. The tuple above each line
+ * shows the amount of space to expect at the minimum (i.e. phone) and maximum (big desktop) sizes
+ *
+ * @link https://utopia.fyi/space/calculator?c=320,12,1.125,1240,16,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+ *
+ */
+
+:root {
+    /* (2px, 2px) */
+    --ak-spacing-4xs: clamp(0.13rem, calc(0.13rem + 0vw), 0.13rem);
+    /* (3px, 4px) */
+    --ak-spacing-3xs: clamp(0.19rem, calc(0.17rem + 0.11vw), 0.25rem);
+    /* (6px, 8px) */
+    --ak-spacing-2xs: clamp(0.38rem, calc(0.33rem + 0.22vw), 0.5rem);
+    /* (9px, 12px) */
+    --ak-spacing-xs: clamp(0.56rem, calc(0.5rem + 0.33vw), 0.75rem);
+    /* (12px, 16px) */
+    --ak-spacing-s: clamp(0.75rem, calc(0.66rem + 0.43vw), 1rem);
+    /* (18px, 24px) */
+    --ak-spacing-m: clamp(1.13rem, calc(0.99rem + 0.65vw), 1.5rem);
+    /* (24px, 32px) */
+    --ak-spacing-l: clamp(1.5rem, calc(1.33rem + 0.87vw), 2rem);
+    /* (36px, 48px) */
+    --ak-spacing-xl: clamp(2.25rem, calc(1.99rem + 1.3vw), 3rem);
+    /* (48px, 64px) */
+    --ak-spacing-2xl: clamp(3rem, calc(2.65rem + 1.74vw), 4rem);
+}
+
 :root {
     --ak-accent: #fd4b2d;
-
     --ak-dark-foreground: #fafafa;
     --ak-dark-foreground-darker: #bebebe;
     --ak-dark-foreground-link: #5a5cb9;
